@@ -2,6 +2,8 @@
 
 A silver and navy skin laid out like the "modern" players of the 2000s: a dotted blue display with a segmented analyzer, round transport buttons, toggles with blue lamps, an equalizer with a dB scale, its own pixel fonts (Latin and Cyrillic) and a shade mode for all three windows.
 
+![Popamp Steel: main window, equalizer and playlist](preview.png)
+
 A vector skin for [Popamp](https://github.com/popamp/popamp), skin format
 version 1. All artwork is the skin's own.
 
