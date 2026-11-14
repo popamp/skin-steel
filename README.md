@@ -38,7 +38,7 @@ This needs Popamp 1.0.0 or newer.
 
 ## Install
 
-With Popamp 0.6.0 or newer from [apt.popamp.app](https://apt.popamp.app):
+With Popamp 1.0.0 or newer from [apt.popamp.app](https://apt.popamp.app):
 
 ```sh
 sudo apt install popamp-skin-steel
