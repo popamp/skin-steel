@@ -2,7 +2,7 @@
 <defs>
 <clipPath id="c1"><path d="M0 0 H150 V34 A4 4 0 0 1 146 38 H0 Z"/></clipPath>
 <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0.0" stop-color="#aeb5c1"/><stop offset="0.2" stop-color="#c9cdd7"/><stop offset="0.4" stop-color="#b9bfcb"/><stop offset="0.6" stop-color="#8d94a2"/><stop offset="0.8" stop-color="#6d7483"/><stop offset="1.0" stop-color="#5e6673"/></linearGradient>
-<pattern id="p3" x="1" y="1" width="2" height="2" patternUnits="userSpaceOnUse"><rect width="1" height="1" fill="#002263"/></pattern>
+<pattern id="p3" x="1" y="1" width="2" height="2" patternUnits="userSpaceOnUse"><rect class="navy-002263" width="1" height="1" fill="#002263"/></pattern>
 <clipPath id="c4"><path d="M10 3 H91 A6 6 0 0 1 97 9 V29 A6 6 0 0 1 91 35 H10 A6 6 0 0 1 4 29 V9 A6 6 0 0 1 10 3 Z"/></clipPath>
 <linearGradient id="g5" x1="0" y1="0" x2="0" y2="1"><stop offset="0.0" stop-color="#ffffff"/><stop offset="0.3333333333333333" stop-color="#f4f5f8"/><stop offset="0.6666666666666666" stop-color="#d3d7df"/><stop offset="1.0" stop-color="#9aa1ae"/></linearGradient>
 </defs>
@@ -28,14 +28,14 @@
 <rect x="148" y="0" width="1" height="38" fill="#989fac"/>
 <rect x="149" y="0" width="1" height="38" fill="#000000"/>
 <path d="M10 3 H91 A6 6 0 0 1 97 9 V29 A6 6 0 0 1 91 35 H10 A6 6 0 0 1 4 29 V9 A6 6 0 0 1 10 3 Z" fill="none" stroke="#141822" stroke-width="2"/>
-<path d="M10 3 H91 A6 6 0 0 1 97 9 V29 A6 6 0 0 1 91 35 H10 A6 6 0 0 1 4 29 V9 A6 6 0 0 1 10 3 Z" fill="#284a89"/>
+<path class="navy-284a89" d="M10 3 H91 A6 6 0 0 1 97 9 V29 A6 6 0 0 1 91 35 H10 A6 6 0 0 1 4 29 V9 A6 6 0 0 1 10 3 Z" fill="#284a89"/>
 <path d="M10 3 H91 A6 6 0 0 1 97 9 V29 A6 6 0 0 1 91 35 H10 A6 6 0 0 1 4 29 V9 A6 6 0 0 1 10 3 Z" fill="url(#p3)"/>
 <g clip-path="url(#c4)">
-<path d="M10 3 H91 A6 6 0 0 1 97 9 V29 A6 6 0 0 1 91 35 H10 A6 6 0 0 1 4 29 V9 A6 6 0 0 1 10 3 Z" fill="none" stroke="#7d95c8" stroke-width="16" opacity="0.18"/>
-<path d="M10 3 H91 A6 6 0 0 1 97 9 V29 A6 6 0 0 1 91 35 H10 A6 6 0 0 1 4 29 V9 A6 6 0 0 1 10 3 Z" fill="none" stroke="#7d95c8" stroke-width="10" opacity="0.25"/>
-<path d="M10 3 H91 A6 6 0 0 1 97 9 V29 A6 6 0 0 1 91 35 H10 A6 6 0 0 1 4 29 V9 A6 6 0 0 1 10 3 Z" fill="none" stroke="#8aa0cc" stroke-width="6" opacity="0.45"/>
-<path d="M10 3 H91 A6 6 0 0 1 97 9 V29 A6 6 0 0 1 91 35 H10 A6 6 0 0 1 4 29 V9 A6 6 0 0 1 10 3 Z" fill="none" stroke="#8095c0" stroke-width="4" opacity="0.7"/>
-<path d="M10 3 H91 A6 6 0 0 1 97 9 V29 A6 6 0 0 1 91 35 H10 A6 6 0 0 1 4 29 V9 A6 6 0 0 1 10 3 Z" fill="none" stroke="#c6d4f0" stroke-width="2" opacity="0.9"/>
+<path class="navy-7d95c8-stroke" d="M10 3 H91 A6 6 0 0 1 97 9 V29 A6 6 0 0 1 91 35 H10 A6 6 0 0 1 4 29 V9 A6 6 0 0 1 10 3 Z" fill="none" stroke="#7d95c8" stroke-width="16" opacity="0.18"/>
+<path class="navy-7d95c8-stroke" d="M10 3 H91 A6 6 0 0 1 97 9 V29 A6 6 0 0 1 91 35 H10 A6 6 0 0 1 4 29 V9 A6 6 0 0 1 10 3 Z" fill="none" stroke="#7d95c8" stroke-width="10" opacity="0.25"/>
+<path class="navy-8aa0cc-stroke" d="M10 3 H91 A6 6 0 0 1 97 9 V29 A6 6 0 0 1 91 35 H10 A6 6 0 0 1 4 29 V9 A6 6 0 0 1 10 3 Z" fill="none" stroke="#8aa0cc" stroke-width="6" opacity="0.45"/>
+<path class="navy-8095c0-stroke" d="M10 3 H91 A6 6 0 0 1 97 9 V29 A6 6 0 0 1 91 35 H10 A6 6 0 0 1 4 29 V9 A6 6 0 0 1 10 3 Z" fill="none" stroke="#8095c0" stroke-width="4" opacity="0.7"/>
+<path class="navy-c6d4f0-stroke" d="M10 3 H91 A6 6 0 0 1 97 9 V29 A6 6 0 0 1 91 35 H10 A6 6 0 0 1 4 29 V9 A6 6 0 0 1 10 3 Z" fill="none" stroke="#c6d4f0" stroke-width="2" opacity="0.9"/>
 </g>
 <path d="M11.94 24.02 L8.34 26 L11.94 27.98 Z M15.299999999999999 24.02 L11.7 26 L15.299999999999999 27.98 Z" fill="#ffffff"/>
 <path d="M18.78 22.7 L24.78 26 L18.78 29.3 Z" fill="#ffffff"/>

@@ -19,6 +19,6 @@
 <rect x="0" y="305" width="113" height="1" fill="#dfe2e8"/>
 <rect x="0" y="308" width="113" height="1" fill="#dfe2e8"/>
 <rect x="0" y="311" width="113" height="1" fill="#dfe2e8"/>
-<rect x="115" y="294" width="1" height="19" fill="#8296c0"/>
-<rect x="0" y="314" width="113" height="1" fill="#9cb4d0"/>
+<rect class="navy-8296c0" x="115" y="294" width="1" height="19" fill="#8296c0"/>
+<rect class="navy-9cb4d0" x="0" y="314" width="113" height="1" fill="#9cb4d0"/>
 </svg>

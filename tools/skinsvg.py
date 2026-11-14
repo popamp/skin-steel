@@ -3,12 +3,27 @@
 Set `OUT` to the skin folder before saving pictures.
 """
 import os
+import re
 
 from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
 from fontTools.ttLib import TTFont
 
 OUT = None
+
+# Which colours a colour set can change: a function from "#rrggbb" to the
+# colour's name, or None for a colour every set keeps. Every name given out
+# is kept in NAMED with its colour, for the skin's [colors] tables.
+class_of = lambda color: None  # noqa: E731
+NAMED = {}
+
+
+def named(color):
+    """The colour's name if a colour set can change it, else None."""
+    name = class_of(color.lower())
+    if name:
+        NAMED[name] = color.lower()
+    return name
 
 
 # --- svg -------------------------------------------------------------------------
@@ -34,7 +49,19 @@ class Svg:
         path = os.path.join(OUT, name)
         os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, "w") as f:
-            f.write(text)
+            f.write(re.sub(r"<\w[^>]*>", with_classes, text))
+
+
+def with_classes(tag):
+    """The tag with a class for each of its colours a colour set can change."""
+    tag = tag.group(0)
+    found = [
+        name + suffix
+        for attr, suffix in (("fill", ""), ("stroke", "-stroke"), ("stop-color", "-stop"))
+        for color in re.findall(f' {attr}="(#[0-9a-fA-F]{{6}})"', tag)
+        if (name := named(color))
+    ]
+    return re.sub(r"^<(\w+)", rf'<\1 class="{" ".join(found)}"', tag) if found else tag
 
 
 def spread(colors):

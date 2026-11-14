@@ -6,20 +6,20 @@
 <linearGradient id="g4" x1="0" y1="0" x2="0" y2="1"><stop offset="0.0" stop-color="#ffffff"/><stop offset="0.3333333333333333" stop-color="#e4e6ec"/><stop offset="0.6666666666666666" stop-color="#9ca3b0"/><stop offset="1.0" stop-color="#c9cdd6"/></linearGradient>
 </defs>
 <g clip-path="url(#c1)">
-<rect x="0" y="0" width="275" height="1" fill="#0b1427"/>
+<rect class="navy-0b1427" x="0" y="0" width="275" height="1" fill="#0b1427"/>
 <rect x="0" y="1" width="275" height="1" fill="#9ba3b5"/>
 <rect x="0" y="2" width="275" height="1" fill="#b3b9c9"/>
 <rect x="0" y="3" width="275" height="1" fill="#6b768e"/>
-<rect x="0" y="4" width="275" height="1" fill="#1b2c4c"/>
-<rect x="0" y="5" width="275" height="1" fill="#172647"/>
-<rect x="0" y="6" width="275" height="1" fill="#16264b"/>
-<rect x="0" y="7" width="275" height="1" fill="#16274d"/>
-<rect x="0" y="8" width="275" height="1" fill="#16284e"/>
-<rect x="0" y="9" width="275" height="1" fill="#1c2c51"/>
-<rect x="0" y="10" width="275" height="1" fill="#233458"/>
-<rect x="0" y="11" width="275" height="1" fill="#354566"/>
-<rect x="0" y="12" width="275" height="1" fill="#354566"/>
-<rect x="0" y="13" width="275" height="1" fill="#0d1119"/>
+<rect class="navy-1b2c4c" x="0" y="4" width="275" height="1" fill="#1b2c4c"/>
+<rect class="navy-172647" x="0" y="5" width="275" height="1" fill="#172647"/>
+<rect class="navy-16264b" x="0" y="6" width="275" height="1" fill="#16264b"/>
+<rect class="navy-16274d" x="0" y="7" width="275" height="1" fill="#16274d"/>
+<rect class="navy-16284e" x="0" y="8" width="275" height="1" fill="#16284e"/>
+<rect class="navy-1c2c51" x="0" y="9" width="275" height="1" fill="#1c2c51"/>
+<rect class="navy-233458" x="0" y="10" width="275" height="1" fill="#233458"/>
+<rect class="navy-354566" x="0" y="11" width="275" height="1" fill="#354566"/>
+<rect class="navy-354566" x="0" y="12" width="275" height="1" fill="#354566"/>
+<rect class="navy-0d1119" x="0" y="13" width="275" height="1" fill="#0d1119"/>
 <rect x="6" y="6" width="88.630859375" height="5" rx="2.5" fill="#000000"/>
 <rect x="7" y="7" width="86.630859375" height="3" rx="1.5" fill="url(#g2)"/>
 <rect x="165.369140625" y="6" width="71.630859375" height="5" rx="2.5" fill="#000000"/>

@@ -5,31 +5,31 @@
 <linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0.0" stop-color="#f6f6f8"/><stop offset="0.5" stop-color="#9ca3b0"/><stop offset="1.0" stop-color="#c2c7d2"/></linearGradient>
 <linearGradient id="g4" x1="0" y1="0" x2="0" y2="1"><stop offset="0.0" stop-color="#ffffff"/><stop offset="0.3333333333333333" stop-color="#e4e6ec"/><stop offset="0.6666666666666666" stop-color="#9ca3b0"/><stop offset="1.0" stop-color="#c9cdd6"/></linearGradient>
 <linearGradient id="g5" x1="0" y1="0" x2="0" y2="1"><stop offset="0.0" stop-color="#e8e9ee"/><stop offset="0.3333333333333333" stop-color="#f1f1f4"/><stop offset="0.6666666666666666" stop-color="#d6d9e0"/><stop offset="1.0" stop-color="#c0c5d0"/></linearGradient>
-<pattern id="p6" x="0" y="0" width="2" height="2" patternUnits="userSpaceOnUse"><rect width="1" height="1" fill="#002263"/></pattern>
+<pattern id="p6" x="0" y="0" width="2" height="2" patternUnits="userSpaceOnUse"><rect class="navy-002263" width="1" height="1" fill="#002263"/></pattern>
 <clipPath id="c7"><path d="M5 28 A6 6 0 0 1 11 22 H264 A6 6 0 0 1 270 28 V49 A5 5 0 0 1 265 54 H115 C109 54 106.5 56.5 105 60.5 L103.8 64 C102.8 67 101 68 98 68 H9 A4 4 0 0 1 5 64 Z"/></clipPath>
 <linearGradient id="g8" x1="0" y1="0" x2="0" y2="1"><stop offset="0.0" stop-color="#7a8290"/><stop offset="0.2" stop-color="#aab0bc"/><stop offset="0.4" stop-color="#000000"/><stop offset="0.6" stop-color="#616976"/><stop offset="0.8" stop-color="#8d93a2"/><stop offset="1.0" stop-color="#cfd2db"/></linearGradient>
 <clipPath id="c9"><path d="M275 85 H170 Q162 85 160 92 L153 116 H275 Z"/></clipPath>
 <linearGradient id="g10" x1="0" y1="0" x2="0" y2="1"><stop offset="0.0" stop-color="#ffffff"/><stop offset="0.5" stop-color="#e0e2e7"/><stop offset="1.0" stop-color="#9ea5b2"/></linearGradient>
 </defs>
 <g clip-path="url(#c1)">
-<rect x="0" y="0" width="275" height="1" fill="#0b1427"/>
+<rect class="navy-0b1427" x="0" y="0" width="275" height="1" fill="#0b1427"/>
 <rect x="0" y="1" width="275" height="1" fill="#9ba3b5"/>
 <rect x="0" y="2" width="275" height="1" fill="#b3b9c9"/>
 <rect x="0" y="3" width="275" height="1" fill="#6b768e"/>
 <rect x="0" y="4" width="275" height="1" fill="#596580"/>
 <rect x="0" y="5" width="275" height="1" fill="#414f6e"/>
-<rect x="0" y="6" width="275" height="1" fill="#364565"/>
-<rect x="0" y="7" width="275" height="1" fill="#283859"/>
-<rect x="0" y="8" width="275" height="1" fill="#1b2c4c"/>
-<rect x="0" y="9" width="275" height="1" fill="#172647"/>
-<rect x="0" y="10" width="275" height="1" fill="#16264b"/>
-<rect x="0" y="11" width="275" height="1" fill="#16274d"/>
-<rect x="0" y="12" width="275" height="1" fill="#16284e"/>
-<rect x="0" y="13" width="275" height="1" fill="#1c2c51"/>
-<rect x="0" y="14" width="275" height="1" fill="#233458"/>
-<rect x="0" y="15" width="275" height="1" fill="#354566"/>
-<rect x="0" y="16" width="275" height="1" fill="#354566"/>
-<rect x="0" y="17" width="275" height="1" fill="#0d1119"/>
+<rect class="navy-364565" x="0" y="6" width="275" height="1" fill="#364565"/>
+<rect class="navy-283859" x="0" y="7" width="275" height="1" fill="#283859"/>
+<rect class="navy-1b2c4c" x="0" y="8" width="275" height="1" fill="#1b2c4c"/>
+<rect class="navy-172647" x="0" y="9" width="275" height="1" fill="#172647"/>
+<rect class="navy-16264b" x="0" y="10" width="275" height="1" fill="#16264b"/>
+<rect class="navy-16274d" x="0" y="11" width="275" height="1" fill="#16274d"/>
+<rect class="navy-16284e" x="0" y="12" width="275" height="1" fill="#16284e"/>
+<rect class="navy-1c2c51" x="0" y="13" width="275" height="1" fill="#1c2c51"/>
+<rect class="navy-233458" x="0" y="14" width="275" height="1" fill="#233458"/>
+<rect class="navy-354566" x="0" y="15" width="275" height="1" fill="#354566"/>
+<rect class="navy-354566" x="0" y="16" width="275" height="1" fill="#354566"/>
+<rect class="navy-0d1119" x="0" y="17" width="275" height="1" fill="#0d1119"/>
 <rect x="19" y="6" width="79.8291015625" height="5" rx="2.5" fill="#000000"/>
 <rect x="20" y="7" width="77.8291015625" height="3" rx="1.5" fill="url(#g2)"/>
 <rect x="169.1708984375" y="6" width="69.8291015625" height="5" rx="2.5" fill="#000000"/>
@@ -76,19 +76,19 @@
 <rect x="0" y="113" width="275" height="1" fill="#7c8392"/>
 <rect x="0" y="114" width="275" height="1" fill="#636b79"/>
 <path d="M5 28 A6 6 0 0 1 11 22 H264 A6 6 0 0 1 270 28 V49 A5 5 0 0 1 265 54 H115 C109 54 106.5 56.5 105 60.5 L103.8 64 C102.8 67 101 68 98 68 H9 A4 4 0 0 1 5 64 Z" fill="none" stroke="#141822" stroke-width="2"/>
-<path d="M5 28 A6 6 0 0 1 11 22 H264 A6 6 0 0 1 270 28 V49 A5 5 0 0 1 265 54 H115 C109 54 106.5 56.5 105 60.5 L103.8 64 C102.8 67 101 68 98 68 H9 A4 4 0 0 1 5 64 Z" fill="#284a89"/>
+<path class="navy-284a89" d="M5 28 A6 6 0 0 1 11 22 H264 A6 6 0 0 1 270 28 V49 A5 5 0 0 1 265 54 H115 C109 54 106.5 56.5 105 60.5 L103.8 64 C102.8 67 101 68 98 68 H9 A4 4 0 0 1 5 64 Z" fill="#284a89"/>
 <path d="M5 28 A6 6 0 0 1 11 22 H264 A6 6 0 0 1 270 28 V49 A5 5 0 0 1 265 54 H115 C109 54 106.5 56.5 105 60.5 L103.8 64 C102.8 67 101 68 98 68 H9 A4 4 0 0 1 5 64 Z" fill="url(#p6)"/>
 <g clip-path="url(#c7)">
-<path d="M5 28 A6 6 0 0 1 11 22 H264 A6 6 0 0 1 270 28 V49 A5 5 0 0 1 265 54 H115 C109 54 106.5 56.5 105 60.5 L103.8 64 C102.8 67 101 68 98 68 H9 A4 4 0 0 1 5 64 Z" fill="none" stroke="#7d95c8" stroke-width="16" opacity="0.18"/>
-<path d="M5 28 A6 6 0 0 1 11 22 H264 A6 6 0 0 1 270 28 V49 A5 5 0 0 1 265 54 H115 C109 54 106.5 56.5 105 60.5 L103.8 64 C102.8 67 101 68 98 68 H9 A4 4 0 0 1 5 64 Z" fill="none" stroke="#7d95c8" stroke-width="10" opacity="0.25"/>
-<path d="M5 28 A6 6 0 0 1 11 22 H264 A6 6 0 0 1 270 28 V49 A5 5 0 0 1 265 54 H115 C109 54 106.5 56.5 105 60.5 L103.8 64 C102.8 67 101 68 98 68 H9 A4 4 0 0 1 5 64 Z" fill="none" stroke="#8aa0cc" stroke-width="6" opacity="0.45"/>
-<path d="M5 28 A6 6 0 0 1 11 22 H264 A6 6 0 0 1 270 28 V49 A5 5 0 0 1 265 54 H115 C109 54 106.5 56.5 105 60.5 L103.8 64 C102.8 67 101 68 98 68 H9 A4 4 0 0 1 5 64 Z" fill="none" stroke="#8095c0" stroke-width="4" opacity="0.7"/>
-<path d="M5 28 A6 6 0 0 1 11 22 H264 A6 6 0 0 1 270 28 V49 A5 5 0 0 1 265 54 H115 C109 54 106.5 56.5 105 60.5 L103.8 64 C102.8 67 101 68 98 68 H9 A4 4 0 0 1 5 64 Z" fill="none" stroke="#c6d4f0" stroke-width="2" opacity="0.9"/>
+<path class="navy-7d95c8-stroke" d="M5 28 A6 6 0 0 1 11 22 H264 A6 6 0 0 1 270 28 V49 A5 5 0 0 1 265 54 H115 C109 54 106.5 56.5 105 60.5 L103.8 64 C102.8 67 101 68 98 68 H9 A4 4 0 0 1 5 64 Z" fill="none" stroke="#7d95c8" stroke-width="16" opacity="0.18"/>
+<path class="navy-7d95c8-stroke" d="M5 28 A6 6 0 0 1 11 22 H264 A6 6 0 0 1 270 28 V49 A5 5 0 0 1 265 54 H115 C109 54 106.5 56.5 105 60.5 L103.8 64 C102.8 67 101 68 98 68 H9 A4 4 0 0 1 5 64 Z" fill="none" stroke="#7d95c8" stroke-width="10" opacity="0.25"/>
+<path class="navy-8aa0cc-stroke" d="M5 28 A6 6 0 0 1 11 22 H264 A6 6 0 0 1 270 28 V49 A5 5 0 0 1 265 54 H115 C109 54 106.5 56.5 105 60.5 L103.8 64 C102.8 67 101 68 98 68 H9 A4 4 0 0 1 5 64 Z" fill="none" stroke="#8aa0cc" stroke-width="6" opacity="0.45"/>
+<path class="navy-8095c0-stroke" d="M5 28 A6 6 0 0 1 11 22 H264 A6 6 0 0 1 270 28 V49 A5 5 0 0 1 265 54 H115 C109 54 106.5 56.5 105 60.5 L103.8 64 C102.8 67 101 68 98 68 H9 A4 4 0 0 1 5 64 Z" fill="none" stroke="#8095c0" stroke-width="4" opacity="0.7"/>
+<path class="navy-c6d4f0-stroke" d="M5 28 A6 6 0 0 1 11 22 H264 A6 6 0 0 1 270 28 V49 A5 5 0 0 1 265 54 H115 C109 54 106.5 56.5 105 60.5 L103.8 64 C102.8 67 101 68 98 68 H9 A4 4 0 0 1 5 64 Z" fill="none" stroke="#c6d4f0" stroke-width="2" opacity="0.9"/>
 </g>
 <rect x="14" y="73" width="252" height="7" rx="3" fill="url(#g8)"/>
 <rect x="16" y="79" width="248" height="1" fill="#ffffff"/>
 <g clip-path="url(#c9)">
-<rect x="150" y="85" width="125" height="1" fill="#0f151e"/>
+<rect class="navy-0f151e" x="150" y="85" width="125" height="1" fill="#0f151e"/>
 <rect x="150" y="86" width="125" height="1" fill="#ffffff"/>
 <rect x="150" y="87" width="125" height="1" fill="#ececef"/>
 <rect x="150" y="88" width="125" height="1" fill="#efeff2"/>
@@ -119,7 +119,7 @@
 <rect x="150" y="113" width="125" height="1" fill="#f3f3f6"/>
 <rect x="150" y="114" width="125" height="1" fill="#9ea5b2"/>
 </g>
-<path d="M275 85.5 H170 Q162.5 85.5 160.5 92 L153.5 116" fill="none" stroke="#0f151e"/>
+<path class="navy-0f151e-stroke" d="M275 85.5 H170 Q162.5 85.5 160.5 92 L153.5 116" fill="none" stroke="#0f151e"/>
 <path d="M276 86.5 H170 Q163.5 86.5 161.5 93 L154.5 116" fill="none" stroke="#ffffff" opacity="0.8"/>
 <rect x="176" y="63" width="39" height="4" rx="2" fill="#000000"/>
 <rect x="177" y="65" width="37" height="2" rx="1" fill="#aab1be"/>

@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="136" height="13" viewBox="0 0 136 13">
 <defs>
-<linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0.0" stop-color="#5b74a6"/><stop offset="0.5" stop-color="#3d5588"/><stop offset="1.0" stop-color="#284173"/></linearGradient>
-<linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0.0" stop-color="#284173"/><stop offset="0.5" stop-color="#3d5588"/><stop offset="1.0" stop-color="#5b74a6"/></linearGradient>
-<linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0.0" stop-color="#7d9ad4"/><stop offset="0.5" stop-color="#4f6fb6"/><stop offset="1.0" stop-color="#2f4f96"/></linearGradient>
-<linearGradient id="g4" x1="0" y1="0" x2="0" y2="1"><stop offset="0.0" stop-color="#2f4f96"/><stop offset="0.5" stop-color="#4f6fb6"/><stop offset="1.0" stop-color="#7d9ad4"/></linearGradient>
+<linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop class="navy-5b74a6-stop" offset="0.0" stop-color="#5b74a6"/><stop class="navy-3d5588-stop" offset="0.5" stop-color="#3d5588"/><stop class="navy-284173-stop" offset="1.0" stop-color="#284173"/></linearGradient>
+<linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop class="navy-284173-stop" offset="0.0" stop-color="#284173"/><stop class="navy-3d5588-stop" offset="0.5" stop-color="#3d5588"/><stop class="navy-5b74a6-stop" offset="1.0" stop-color="#5b74a6"/></linearGradient>
+<linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop class="navy-7d9ad4-stop" offset="0.0" stop-color="#7d9ad4"/><stop class="navy-4f6fb6-stop" offset="0.5" stop-color="#4f6fb6"/><stop class="navy-2f4f96-stop" offset="1.0" stop-color="#2f4f96"/></linearGradient>
+<linearGradient id="g4" x1="0" y1="0" x2="0" y2="1"><stop class="navy-2f4f96-stop" offset="0.0" stop-color="#2f4f96"/><stop class="navy-4f6fb6-stop" offset="0.5" stop-color="#4f6fb6"/><stop class="navy-7d9ad4-stop" offset="1.0" stop-color="#7d9ad4"/></linearGradient>
 </defs>
 <g transform="translate(0,0)">
 <rect x="0.5" y="0.5" width="33" height="12" rx="6.0" fill="url(#g1)" stroke="#000000" stroke-width="1"/>

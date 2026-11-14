@@ -14,6 +14,14 @@ A silver and navy skin laid out like the "modern" players of the 2000s: a dotted
 A vector skin for [Popamp](https://github.com/popamp/popamp), skin format
 version 1. All artwork is the skin's own.
 
+## Colours
+
+The skin comes in four colours: Navy (as drawn), Emerald, Ruby and
+Graphite. Pick one in the main menu's "Colours". A set changes the navy
+of the displays, the lamps, the playlist's title bar and its list, and
+keeps the silver body; Graphite keeps only a trace of blue. This needs
+Popamp 1.0.0 or newer.
+
 ## Media library
 
 The media library window has the playlist's frame, its buttons and its
