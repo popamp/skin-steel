@@ -734,8 +734,7 @@ def top_piece(name, w, text=None, grips=True, corner=None, folder="pl"):
     shape = {"tl": f"M0 {TOP_H} V4 A4 4 0 0 1 4 0 H{w} V{TOP_H} Z",
              "tr": f"M0 0 H{w - 4} A4 4 0 0 1 {w} 4 V{TOP_H} H0 Z"}.get(corner, f"M0 0 H{w} V{TOP_H} H0 Z")
     s.add(f"<g {clip(s, shape)}>")
-    bands(s, 0, 0, w, TITLE_ROWS[:6] + ("#181f2d", "#98a0b0", "#626f86", "#757f96", "#0a1223") + TITLE_ROWS[11:17]
-          + ("#050911", "#ffffff"))
+    bands(s, 0, 0, w, TITLE_ROWS[:17] + ("#050911", "#ffffff"))
     if corner == "tl":
         s.add('<rect x="0" y="0" width="1" height="19" fill="#000000"/>')
         grip(s, 5, w + 3, 6)
@@ -743,7 +742,7 @@ def top_piece(name, w, text=None, grips=True, corner=None, folder="pl"):
         s.add(f'<rect x="{w - 1}" y="0" width="1" height="19" fill="#000000"/>')
         grip(s, -3, w - 22, 6)
     elif text:
-        titled_grips(s, text, w / 2, -3, w + 3, 12)
+        titled_grips(s, text, w / 2, -3, w + 3, 13)
     elif grips:
         grip(s, -3, w + 3, 6)
     s.add("</g>")
