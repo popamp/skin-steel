@@ -460,6 +460,109 @@ def main_shade():
         T.el(m, type="button", rect=[x, 3, 8, 8], **look2(f"common/{name}.svg", 8, 8), click=cmd)
 
 
+# --- the main window as a bar ---------------------------------------------------------------------
+# The bar holds the main window's own buttons, toggles and volume as they
+# are; its only pictures are its body and its displays: a fixed one with
+# the play state, the time and the analyzer, then one that stretches with
+# the song title over the seek groove.
+BAR_H, BAR_MIN = 26, 640
+BAR_LCD_Y, BAR_LCD_H = 2, 22
+# The fixed display: where it starts and how wide it is
+BAR_DISPLAY_X, BAR_DISPLAY_W = 158, 172
+# The stretching display's fixed distances from the bar's ends, and its
+# ends' width
+BAR_SPAN, BAR_CAP = (334, 196), 12
+# Rows of the stretching display: the title's display, then the seek groove
+SPAN_LCD_H, SPAN_GROOVE_Y = 13, 14
+
+
+def bar_body():
+    s = Svg(8, BAR_H)
+    bands(s, 0, 0, 8, ("#0f151e", "#ffffff"))
+    s.add(f'<rect x="0" y="2" width="8" height="{BAR_H - 3}" fill="{s.grad(("#e8e9ee", "#f1f1f4", "#d6d9e0", "#c0c5d0"))}"/>')
+    bands(s, 0, BAR_H - 1, 8, ("#6d7685",))
+    s.save("bar/body.svg")
+
+
+def rounded(x0, y0, x1, y1, r):
+    return (f"M{x0 + r} {y0} H{x1 - r} A{r} {r} 0 0 1 {x1} {y0 + r} V{y1 - r} A{r} {r} 0 0 1 {x1 - r} {y1} "
+            f"H{x0 + r} A{r} {r} 0 0 1 {x0} {y1 - r} V{y0 + r} A{r} {r} 0 0 1 {x0 + r} {y0} Z")
+
+
+def bar_display():
+    s = Svg(BAR_DISPLAY_W, BAR_LCD_H)
+    lcd(s, rounded(1, 1, BAR_DISPLAY_W - 1, BAR_LCD_H - 1, 5))
+    s.save("bar/display.svg")
+
+
+def span_piece(name, w, x0, x1):
+    """A slice of the stretching display and its groove. The shapes run from x0 to x1, past the slice's
+    edges where the display goes on, so a slice shows a rounded end or only the top and bottom."""
+    s = Svg(w, BAR_LCD_H)
+    lcd(s, rounded(x0, 1, x1, SPAN_LCD_H, 4))
+    y = SPAN_GROOVE_Y
+    s.add(rrect(x0 - 1, y, x1 - x0 + 2, 7, 3, s.grad(("#7a8290", "#aab0bc", "#000000", "#616976", "#8d93a2", "#cfd2db"))))
+    s.add(f'<rect x="{x0 + 1}" y="{y + 6}" width="{x1 - x0 - 2}" height="1" fill="#ffffff"/>')
+    s.save(f"bar/span-{name}.svg")
+
+
+def bar_art():
+    bar_body()
+    bar_display()
+    far = 40
+    span_piece("left", BAR_CAP, 1, BAR_CAP + far)
+    span_piece("tile", 8, -far, 8 + far)
+    span_piece("right", BAR_CAP, -far, BAR_CAP - 1)
+
+
+def end(x):
+    return f"end-{x}"
+
+
+def bar_toml():
+    T.lines.append("\n# --- the main window as a bar ---")
+    T.table("[window.bar]", edge="bottom", size=[BAR_MIN, BAR_H])
+    b = "bar"
+    left, right = BAR_SPAN
+    T.el(b, type="image", edges=[0, 0, "end", BAR_H], normal="bar/body.svg", fill="tile")
+    T.el(b, type="button", rect=[5, 9, 8, 8], **look2("common/menu.svg", 8, 8), menu_press="main", cursor="mainmenu",
+         tip="Main Menu")
+    d = TRANSPORT_D
+    for name, cx, _, act, menu, tip in TRANSPORT:
+        # a pixel left of where the main window has them
+        T.el(b, type="button", rect=[cx - d // 2 - 1, 2, d, d], **look2(f"main/{name}.svg", d, d),
+             hit=part(f"main/{name}.svg", 2 * d, 0, d, d), **act, menu=menu, tip=tip)
+    x, y = BAR_DISPLAY_X, BAR_LCD_Y
+    T.el(b, type="image", rect=[x, y, BAR_DISPLAY_W, BAR_LCD_H], normal="bar/display.svg")
+    for flag, sx in (("playing", 0), ("paused", 12), ("stopped", 24)):
+        T.el(b, type="image", rect=[x + 6, y + 6, 12, 9], normal=part("main/status.svg", sx, 0, 12, 9), show=flag)
+    T.el(b, type="clock", rect=[x + 20, y + 5, 64, 13], hide="stopped")
+    T.el(b, type="button", rect=[x + 20, y + 5, 64, 13], press="toggle-time-mode", menu="time")
+    T.el(b, type="vis", rect=[x + 90, y + 3, 77, 16])
+    T.el(b, type="button", rect=[x + 90, y + 3, 77, 16], press="cycle-vis-mode", menu="vis")
+    T.el(b, type="image", edges=[left, y, left + BAR_CAP, y + BAR_LCD_H], normal="bar/span-left.svg")
+    T.el(b, type="image", edges=[left + BAR_CAP, y, end(right + BAR_CAP), y + BAR_LCD_H], normal="bar/span-tile.svg",
+         fill="tile")
+    T.el(b, type="image", edges=[end(right + BAR_CAP), y, end(right), y + BAR_LCD_H], normal="bar/span-right.svg")
+    T.el(b, type="marquee", edges=[left + 5, y + 3, end(right + 5), y + 10], double="file-info", cursor="songname",
+         tip="Song Title (right-click for options)", menu="song-title")
+    T.el(b, type="slider", edges=[left + 2, y + SPAN_GROOVE_Y - 1, end(right + 2), y + SPAN_GROOVE_Y + 8],
+         value="position", thumb=look2("main/seek-thumb.svg", 28, 9), thumb_len=28, live=False, show="seekable",
+         cursor="posbar", menu="seek")
+    T.el(b, type="slider", edges=[end(190), 9, end(124), 17], value="volume",
+         track={"file": "main/volume.svg", "first": [0, 0, VOLUME_W, VOLUME_H], "step": [0, VOLUME_H],
+                "count": VOLUME_FRAMES},
+         thumb=look2("main/vol-thumb.svg", 13, 8), thumb_len=13, reset=200, wheel_step=8, cursor="volbal", tip="Volume")
+    toggles = ((119, 8, 15, 11, "eq", "eq-window", "toggle-eq-window", {"tip": "Toggle Equalizer"}),
+               (102, 8, 15, 11, "pl", "playlist-window", "toggle-playlist-window", {"tip": "Toggle Playlist Editor"}),
+               (82, 2, 33, 22, "shuffle", "shuffle", "toggle-shuffle", {"menu": "shuffle", "tip": "Toggle Shuffle"}),
+               (46, 2, 30, 22, "repeat", "repeat", "toggle-repeat", {"menu": "repeat", "tip": "Toggle Repeat"}))
+    for x, y, w, h, name, flag, cmd, more in toggles:
+        T.el(b, type="toggle", edges=[end(x), y, end(x - w), y + h], **look4(f"main/{name}.svg", w, h), flag=flag,
+             click=cmd, **more)
+    T.el(b, type="button", edges=[end(12), 9, end(4), 17], **look2("common/close.svg", 8, 8), click="exit", tip="Close")
+
+
 # --- equalizer ---------------------------------------------------------------------------------
 BANDS = ("60", "170", "310", "600", "1K", "3K", "6K", "12K", "14K", "16K")
 PREAMP_X = 26
@@ -894,6 +997,9 @@ def main():
     main_art()
     main_toml()
     main_shade()
+    # Right after the main window: its bar view is part of the same window.
+    bar_art()
+    bar_toml()
     eq_art()
     eq_toml()
     playlist_art()

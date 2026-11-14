@@ -14,6 +14,14 @@ A silver and navy skin laid out like the "modern" players of the 2000s: a dotted
 A vector skin for [Popamp](https://github.com/popamp/popamp), skin format
 version 1. All artwork is the skin's own.
 
+## Window or bar
+
+The main window has a second view: a bar across the screen, at its top or
+bottom edge, with the main window's own buttons, toggles and volume and
+two displays: the play state, time and analyzer, and the song title over
+the seek groove, which stretches with the screen. Switch between the two
+in the main menu's "Toolbar mode". This needs Popamp 1.0.0 or newer.
+
 ## Colours
 
 The skin comes in four colours: Navy (as drawn), Emerald, Ruby and

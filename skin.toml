@@ -591,6 +591,242 @@ normal = { file = "common/close.svg", area = [0, 0, 8, 8] }
 pressed = { file = "common/close.svg", area = [8, 0, 8, 8] }
 click = "exit"
 
+# --- the main window as a bar ---
+
+[window.bar]
+edge = "bottom"
+size = [640, 26]
+
+[[window.bar.element]]
+type = "image"
+edges = [0, 0, "end", 26]
+normal = "bar/body.svg"
+fill = "tile"
+
+[[window.bar.element]]
+type = "button"
+rect = [5, 9, 8, 8]
+normal = { file = "common/menu.svg", area = [0, 0, 8, 8] }
+pressed = { file = "common/menu.svg", area = [8, 0, 8, 8] }
+menu_press = "main"
+cursor = "mainmenu"
+tip = "Main Menu"
+
+[[window.bar.element]]
+type = "button"
+rect = [16, 2, 23, 23]
+normal = { file = "main/prev.svg", area = [0, 0, 23, 23] }
+pressed = { file = "main/prev.svg", area = [23, 0, 23, 23] }
+hit = { file = "main/prev.svg", area = [46, 0, 23, 23] }
+click = "previous"
+shift = "back5s"
+ctrl = "start-of-list"
+menu = "previous"
+tip = "Previous"
+
+[[window.bar.element]]
+type = "button"
+rect = [38, 2, 23, 23]
+normal = { file = "main/play.svg", area = [0, 0, 23, 23] }
+pressed = { file = "main/play.svg", area = [23, 0, 23, 23] }
+hit = { file = "main/play.svg", area = [46, 0, 23, 23] }
+click = "play"
+shift = "open-file"
+ctrl = "open-url"
+menu = "play"
+tip = "Play"
+
+[[window.bar.element]]
+type = "button"
+rect = [61, 2, 23, 23]
+normal = { file = "main/pause.svg", area = [0, 0, 23, 23] }
+pressed = { file = "main/pause.svg", area = [23, 0, 23, 23] }
+hit = { file = "main/pause.svg", area = [46, 0, 23, 23] }
+click = "pause"
+menu = "pause"
+tip = "Pause"
+
+[[window.bar.element]]
+type = "button"
+rect = [84, 2, 23, 23]
+normal = { file = "main/stop.svg", area = [0, 0, 23, 23] }
+pressed = { file = "main/stop.svg", area = [23, 0, 23, 23] }
+hit = { file = "main/stop.svg", area = [46, 0, 23, 23] }
+click = "stop"
+shift = "stop-fadeout"
+ctrl = "stop-after-current"
+menu = "stop"
+tip = "Stop"
+
+[[window.bar.element]]
+type = "button"
+rect = [106, 2, 23, 23]
+normal = { file = "main/next.svg", area = [0, 0, 23, 23] }
+pressed = { file = "main/next.svg", area = [23, 0, 23, 23] }
+hit = { file = "main/next.svg", area = [46, 0, 23, 23] }
+click = "next"
+shift = "fwd5s"
+ctrl = "end-of-list"
+menu = "next"
+tip = "Next"
+
+[[window.bar.element]]
+type = "button"
+rect = [130, 2, 23, 23]
+normal = { file = "main/eject.svg", area = [0, 0, 23, 23] }
+pressed = { file = "main/eject.svg", area = [23, 0, 23, 23] }
+hit = { file = "main/eject.svg", area = [46, 0, 23, 23] }
+click = "open-file"
+shift = "open-folder"
+ctrl = "open-url"
+menu = "eject"
+tip = "Open"
+
+[[window.bar.element]]
+type = "image"
+rect = [158, 2, 172, 22]
+normal = "bar/display.svg"
+
+[[window.bar.element]]
+type = "image"
+rect = [164, 8, 12, 9]
+normal = { file = "main/status.svg", area = [0, 0, 12, 9] }
+show = "playing"
+
+[[window.bar.element]]
+type = "image"
+rect = [164, 8, 12, 9]
+normal = { file = "main/status.svg", area = [12, 0, 12, 9] }
+show = "paused"
+
+[[window.bar.element]]
+type = "image"
+rect = [164, 8, 12, 9]
+normal = { file = "main/status.svg", area = [24, 0, 12, 9] }
+show = "stopped"
+
+[[window.bar.element]]
+type = "clock"
+rect = [178, 7, 64, 13]
+hide = "stopped"
+
+[[window.bar.element]]
+type = "button"
+rect = [178, 7, 64, 13]
+press = "toggle-time-mode"
+menu = "time"
+
+[[window.bar.element]]
+type = "vis"
+rect = [248, 5, 77, 16]
+
+[[window.bar.element]]
+type = "button"
+rect = [248, 5, 77, 16]
+press = "cycle-vis-mode"
+menu = "vis"
+
+[[window.bar.element]]
+type = "image"
+edges = [334, 2, 346, 24]
+normal = "bar/span-left.svg"
+
+[[window.bar.element]]
+type = "image"
+edges = [346, 2, "end-208", 24]
+normal = "bar/span-tile.svg"
+fill = "tile"
+
+[[window.bar.element]]
+type = "image"
+edges = ["end-208", 2, "end-196", 24]
+normal = "bar/span-right.svg"
+
+[[window.bar.element]]
+type = "marquee"
+edges = [339, 5, "end-201", 12]
+double = "file-info"
+cursor = "songname"
+tip = "Song Title (right-click for options)"
+menu = "song-title"
+
+[[window.bar.element]]
+type = "slider"
+edges = [336, 15, "end-198", 24]
+value = "position"
+thumb = { normal = { file = "main/seek-thumb.svg", area = [0, 0, 28, 9] }, pressed = { file = "main/seek-thumb.svg", area = [28, 0, 28, 9] } }
+thumb_len = 28
+live = false
+show = "seekable"
+cursor = "posbar"
+menu = "seek"
+
+[[window.bar.element]]
+type = "slider"
+edges = ["end-190", 9, "end-124", 17]
+value = "volume"
+track = { file = "main/volume.svg", first = [0, 0, 66, 8], step = [0, 8], count = 28 }
+thumb = { normal = { file = "main/vol-thumb.svg", area = [0, 0, 13, 8] }, pressed = { file = "main/vol-thumb.svg", area = [13, 0, 13, 8] } }
+thumb_len = 13
+reset = 200
+wheel_step = 8
+cursor = "volbal"
+tip = "Volume"
+
+[[window.bar.element]]
+type = "toggle"
+edges = ["end-119", 8, "end-104", 19]
+normal = { file = "main/eq.svg", area = [0, 0, 15, 11] }
+pressed = { file = "main/eq.svg", area = [15, 0, 15, 11] }
+on = { file = "main/eq.svg", area = [30, 0, 15, 11] }
+on_pressed = { file = "main/eq.svg", area = [45, 0, 15, 11] }
+flag = "eq-window"
+click = "toggle-eq-window"
+tip = "Toggle Equalizer"
+
+[[window.bar.element]]
+type = "toggle"
+edges = ["end-102", 8, "end-87", 19]
+normal = { file = "main/pl.svg", area = [0, 0, 15, 11] }
+pressed = { file = "main/pl.svg", area = [15, 0, 15, 11] }
+on = { file = "main/pl.svg", area = [30, 0, 15, 11] }
+on_pressed = { file = "main/pl.svg", area = [45, 0, 15, 11] }
+flag = "playlist-window"
+click = "toggle-playlist-window"
+tip = "Toggle Playlist Editor"
+
+[[window.bar.element]]
+type = "toggle"
+edges = ["end-82", 2, "end-49", 24]
+normal = { file = "main/shuffle.svg", area = [0, 0, 33, 22] }
+pressed = { file = "main/shuffle.svg", area = [33, 0, 33, 22] }
+on = { file = "main/shuffle.svg", area = [66, 0, 33, 22] }
+on_pressed = { file = "main/shuffle.svg", area = [99, 0, 33, 22] }
+flag = "shuffle"
+click = "toggle-shuffle"
+menu = "shuffle"
+tip = "Toggle Shuffle"
+
+[[window.bar.element]]
+type = "toggle"
+edges = ["end-46", 2, "end-16", 24]
+normal = { file = "main/repeat.svg", area = [0, 0, 30, 22] }
+pressed = { file = "main/repeat.svg", area = [30, 0, 30, 22] }
+on = { file = "main/repeat.svg", area = [60, 0, 30, 22] }
+on_pressed = { file = "main/repeat.svg", area = [90, 0, 30, 22] }
+flag = "repeat"
+click = "toggle-repeat"
+menu = "repeat"
+tip = "Toggle Repeat"
+
+[[window.bar.element]]
+type = "button"
+edges = ["end-12", 9, "end-4", 17]
+normal = { file = "common/close.svg", area = [0, 0, 8, 8] }
+pressed = { file = "common/close.svg", area = [8, 0, 8, 8] }
+click = "exit"
+tip = "Close"
+
 # --- equalizer ---
 
 [[window]]
