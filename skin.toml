@@ -5,6 +5,7 @@
 name = "Popamp Steel"
 author = "Popamp"
 format_version = 1
+min_popamp = "1.0.0"
 
 [sheets]
 eqmain = "eq/eqmain.svg"
