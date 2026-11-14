@@ -872,15 +872,20 @@ def playlist_art():
     bottom("bottom-right", 150, bottom_right, "br")
     scroll_thumb()
     shade_strip("pl/shade-strip.svg", (8, 248))
-    navy = ("#3a4a6d", "#1c2c51")
-    box_button("pl/shade.svg", f'<rect x="2" y="3" width="4" height="2" fill="#b8c0d0"/>', 8, 12, navy, "#7d879c")
-    box_button("pl/close.svg", '<path d="M2 4 L6 9 M6 4 L2 9" stroke="#b8c0d0" stroke-width="1.4"/>', 8, 12, navy,
-               "#7d879c")
     for _, _, _, items in PL_MENUS:
         for key, text, _ in items:
             item_art(key, text, OVAL_W)
     for key, text, _ in LIST_MENU:
         item_art(key, text, FOLDER_W)
+
+
+def title_buttons(shade_cmd, close_cmd):
+    """The main window's shade and close buttons, at the same place in a docked window's title bar."""
+    if shade_cmd:
+        T.el("normal", type="button", edges=["end-20", 5, "end-12", 13], **look2("common/shade.svg", 8, 8),
+             click=shade_cmd, tip="Toggle Windowshade Mode")
+    T.el("normal", type="button", edges=["end-10", 5, "end-2", 13], **look2("common/close.svg", 8, 8),
+         click=close_cmd, cursor="pclose", tip="Close")
 
 
 def popup(left, right, top, bottom_, w, items):
@@ -911,10 +916,7 @@ def playlist_toml():
     T.el(n, type="image", edges=[f"end-{150 - ARROWS_X}", f"end-{BOTTOM_H - ARROWS_Y}", f"end-{140 - ARROWS_X}",
                                  f"end-{BOTTOM_H - ARROWS_Y - 13}"], normal="pl/shade-arrows.svg")  # fmt: skip
     T.el(n, type="drag", edges=[0, 0, "end", 18], double="toggle-pl-shade", cursor="ptbar")
-    T.el(n, type="button", edges=["end-20", 2, "end-12", 14], **look2("pl/shade.svg", 8, 12), click="toggle-pl-shade",
-         tip="Toggle Windowshade Mode")
-    T.el(n, type="button", edges=["end-10", 2, "end-2", 14], **look2("pl/close.svg", 8, 12),
-         click="toggle-playlist-window", cursor="pclose", tip="Close")
+    title_buttons("toggle-pl-shade", "toggle-playlist-window")
     T.el(n, type="list", edges=[LEFT_W, TOP_H, f"end-{RIGHT_W}", f"end-{BOTTOM_H}"], menu="playlist-row")
     T.el(n, type="list-scroll", edges=["end-15", TOP_H, "end-9", f"end-{BOTTOM_H}"],
          thumb=look2("pl/scroll-thumb.svg", 6, 18), cursor="pvscroll")
@@ -959,8 +961,7 @@ def library_toml():
     T.el(n, type="image", edges=[0, f"end-{BOTTOM_H}", 125, "end"], normal="pl/bottom-left.svg")
     T.el(n, type="image", edges=["end-150", f"end-{BOTTOM_H}", "end", "end"], normal="pl/bottom-right.svg")
     T.el(n, type="drag", edges=[0, 0, "end", 18], cursor="ptbar")
-    T.el(n, type="button", edges=["end-10", 2, "end-2", 14], **look2("pl/close.svg", 8, 12),
-         click="toggle-library-window", cursor="pclose", tip="Close")
+    title_buttons(None, "toggle-library-window")
     T.el(n, type="library", edges=[LEFT_W, TOP_H, "end-9", f"end-{BOTTOM_H}"], menu="library",
          thumb=look2("pl/scroll-thumb.svg", 6, 18))
     T.el(n, type="text", edges=["end-141", "end-28", "end-60", "end-21"], text="library-status")

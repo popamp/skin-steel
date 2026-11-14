@@ -50,7 +50,6 @@ navy-2a416f = "#2a416f"
 navy-364565 = "#364565"
 navy-354566 = "#354566"
 navy-284173 = "#284173"
-navy-3a4a6d = "#3a4a6d"
 navy-284a89 = "#284a89"
 navy-3d5588 = "#3d5588"
 navy-2f4f96 = "#2f4f96"
@@ -103,7 +102,6 @@ navy-2a416f = "#2a6f41"
 navy-364565 = "#366546"
 navy-354566 = "#356646"
 navy-284173 = "#287341"
-navy-3a4a6d = "#3a6d4c"
 navy-284a89 = "#288947"
 navy-3d5588 = "#3d8857"
 navy-2f4f96 = "#2f9654"
@@ -156,7 +154,6 @@ navy-2a416f = "#6f2a35"
 navy-364565 = "#65363d"
 navy-354566 = "#66353d"
 navy-284173 = "#732834"
-navy-3a4a6d = "#6d3a41"
 navy-284a89 = "#89283a"
 navy-3d5588 = "#883d48"
 navy-2f4f96 = "#962f3e"
@@ -209,7 +206,6 @@ navy-2a416f = "#474b52"
 navy-364565 = "#4a4c51"
 navy-354566 = "#4a4c51"
 navy-284173 = "#484c53"
-navy-3a4a6d = "#505257"
 navy-284a89 = "#515660"
 navy-3d5588 = "#5d6068"
 navy-2f4f96 = "#5b606a"
@@ -1144,17 +1140,17 @@ cursor = "ptbar"
 
 [[window.normal.element]]
 type = "button"
-edges = ["end-20", 2, "end-12", 14]
-normal = { file = "pl/shade.svg", area = [0, 0, 8, 12] }
-pressed = { file = "pl/shade.svg", area = [8, 0, 8, 12] }
+edges = ["end-20", 5, "end-12", 13]
+normal = { file = "common/shade.svg", area = [0, 0, 8, 8] }
+pressed = { file = "common/shade.svg", area = [8, 0, 8, 8] }
 click = "toggle-pl-shade"
 tip = "Toggle Windowshade Mode"
 
 [[window.normal.element]]
 type = "button"
-edges = ["end-10", 2, "end-2", 14]
-normal = { file = "pl/close.svg", area = [0, 0, 8, 12] }
-pressed = { file = "pl/close.svg", area = [8, 0, 8, 12] }
+edges = ["end-10", 5, "end-2", 13]
+normal = { file = "common/close.svg", area = [0, 0, 8, 8] }
+pressed = { file = "common/close.svg", area = [8, 0, 8, 8] }
 click = "toggle-playlist-window"
 cursor = "pclose"
 tip = "Close"
@@ -1423,9 +1419,9 @@ cursor = "ptbar"
 
 [[window.normal.element]]
 type = "button"
-edges = ["end-10", 2, "end-2", 14]
-normal = { file = "pl/close.svg", area = [0, 0, 8, 12] }
-pressed = { file = "pl/close.svg", area = [8, 0, 8, 12] }
+edges = ["end-10", 5, "end-2", 13]
+normal = { file = "common/close.svg", area = [0, 0, 8, 8] }
+pressed = { file = "common/close.svg", area = [8, 0, 8, 8] }
 click = "toggle-library-window"
 cursor = "pclose"
 tip = "Close"
