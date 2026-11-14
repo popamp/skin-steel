@@ -407,7 +407,7 @@ def main_toml():
                                     ("pl", 245, "playlist-window", "toggle-playlist-window", "Toggle Playlist Editor")):
         T.el(n, type="toggle", rect=[x, 60, 15, 11], **look4(f"main/{name}.svg", 15, 11), flag=flag, click=cmd, tip=tip)
     # Seek bar.
-    T.el(n, type="slider", rect=[15, 74, 250, 9], value="position", thumb=look2("main/seek-thumb.svg", 28, 9),
+    T.el(n, type="slider", rect=[15, 72, 250, 9], value="position", thumb=look2("main/seek-thumb.svg", 28, 9),
          thumb_len=28, live=False, show="seekable", cursor="posbar", menu="seek")
     # Transport.
     d = TRANSPORT_D

@@ -402,7 +402,7 @@ tip = "Toggle Playlist Editor"
 
 [[window.normal.element]]
 type = "slider"
-rect = [15, 74, 250, 9]
+rect = [15, 72, 250, 9]
 value = "position"
 thumb = { normal = { file = "main/seek-thumb.svg", area = [0, 0, 28, 9] }, pressed = { file = "main/seek-thumb.svg", area = [28, 0, 28, 9] } }
 thumb_len = 28
