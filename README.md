@@ -14,6 +14,12 @@ A silver and navy skin laid out like the "modern" players of the 2000s: a dotted
 A vector skin for [Popamp](https://github.com/popamp/popamp), skin format
 version 1. All artwork is the skin's own.
 
+## Media library
+
+The media library window has the playlist's frame, its buttons and its
+display, with its own "MEDIA LIBRARY" title in the playlist's lettering.
+This needs Popamp 1.0.0 or newer.
+
 ## Install
 
 With Popamp 0.6.0 or newer from [apt.popamp.app](https://apt.popamp.app):

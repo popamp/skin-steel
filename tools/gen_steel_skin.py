@@ -571,7 +571,7 @@ PL_MENUS = (
                       ("url", "URL", {"click": "pl-add-url"})]),
     ("rem", 42, "-", [("rmisc", "MISC", {"menu_release": "playlist-remove-misc"}),
                       ("rsel", "SEL", {"click": "pl-remove-selected"}),
-                      ("crop", "CROP", {"click": "pl-crop-selected"}), ("rall", "ALL", {"click": "clear-playlist"})]),
+                      ("crop", "CROP", {"click": "pl-crop-selected"}), ("sall", "ALL", {"click": "clear-playlist"})]),
     ("sel", 71, "list", [("sall", "ALL", {"click": "select-all"}), ("snone", "NONE", {"click": "select-none"}),
                          ("sinv", "INV", {"click": "invert-selection"})]),
     ("misc", 100, "dots", [("mopt", "OPTS", {"menu_release": "playlist-misc"}), ("minfo", "INFO", {"click": "file-info"}),
@@ -582,7 +582,7 @@ LIST_MENU = [("lnew", "NEW", {"click": "clear-playlist"}), ("lsave", "SAVE", {"c
 OVAL_W, OVAL_H, FOLDER_W = 23, 18, 21
 
 
-def top_piece(name, w, text=None, grips=True, corner=None):
+def top_piece(name, w, text=None, grips=True, corner=None, folder="pl"):
     s = Svg(w, TOP_H)
     shape = {"tl": f"M0 {TOP_H} V4 A4 4 0 0 1 4 0 H{w} V{TOP_H} Z",
              "tr": f"M0 0 H{w - 4} A4 4 0 0 1 {w} 4 V{TOP_H} H0 Z"}.get(corner, f"M0 0 H{w} V{TOP_H} H0 Z")
@@ -600,7 +600,7 @@ def top_piece(name, w, text=None, grips=True, corner=None):
     elif grips:
         grip(s, -3, w + 3, 6)
     s.add("</g>")
-    s.save(f"pl/{name}.svg")
+    s.save(f"{folder}/{name}.svg")
 
 
 def side(name, cols):
@@ -652,10 +652,13 @@ def oval_icon(s, kind, cx, cy):
                   f'width="1" height="1" fill="{INK}"/>')
 
 
-def bottom_left(s):
+def menu_buttons():
+    """The playlist's oval menu buttons, drawn over the bottom's left end."""
+    s = Svg(125, BOTTOM_H)
     for _, x, icon, _ in PL_MENUS:
         disc(s, x + OVAL_W / 2, 16.5, OVAL_W / 2 - 2, OVAL_H / 2 - 2.5, FACE)
         oval_icon(s, icon, x + OVAL_W / 2, 16.5)
+    s.save("pl/menus.svg")
 
 
 # The info display at the bottom right, inside its piece.
@@ -669,11 +672,22 @@ def bottom_right(s):
     # Folder button for the list menu.
     disc(s, 116.5, 18, FOLDER_W / 2 - 2, OVAL_H / 2 - 2.5, FACE)
     s.add(f'<path d="M112.5 15.5 h3 l1 1 h4.5 v5 h-8.5 Z" fill="none" stroke="{INK}"/>')
-    # Arrows for the shade mode, and the resize grip.
-    s.add(f'<path d="M138 4 L142 8 H134 Z M134 9.5 H142 M134 11 H142 L138 15 Z" fill="#102d66" stroke="#102d66" '
-          f'stroke-width="0.6"/>')
     for k in range(4):
         s.add(f'<path d="M{135 + 3 * k} 35 L146 {24 + 3 * k}" stroke="#3c424e" stroke-width="1.2"/>')
+
+
+# Where the shade arrows sit in the bottom's right end
+ARROWS_X, ARROWS_Y = 133, 3
+
+
+def shade_arrows():
+    """The arrows for the shade mode, which only the playlist has, drawn over the bottom's right end."""
+    s = Svg(10, 13)
+    s.add(f'<g transform="translate({-ARROWS_X} {-ARROWS_Y})">')
+    s.add(f'<path d="M138 4 L142 8 H134 Z M134 9.5 H142 M134 11 H142 L138 15 Z" fill="#102d66" stroke="#102d66" '
+          f'stroke-width="0.6"/>')
+    s.add("</g>")
+    s.save("pl/shade-arrows.svg")
 
 
 def item_art(key, text, w):
@@ -704,7 +718,9 @@ def playlist_art():
     top_piece("top-right", 25, corner="tr")
     side("left", LEFT_COLS)
     side("right", RIGHT_COLS)
-    bottom("bottom-left", 125, bottom_left, "bl")
+    bottom("bottom-left", 125, corner="bl")
+    menu_buttons()
+    shade_arrows()
     bottom("bottom-tile", 25)
     bottom("bottom-right", 150, bottom_right, "br")
     scroll_thumb()
@@ -744,6 +760,9 @@ def playlist_toml():
     T.el(n, type="image", edges=[125, f"end-{BOTTOM_H}", "end-150", "end"], normal="pl/bottom-tile.svg", fill="tile")
     T.el(n, type="image", edges=[0, f"end-{BOTTOM_H}", 125, "end"], normal="pl/bottom-left.svg")
     T.el(n, type="image", edges=["end-150", f"end-{BOTTOM_H}", "end", "end"], normal="pl/bottom-right.svg")
+    T.el(n, type="image", edges=[0, f"end-{BOTTOM_H}", 125, "end"], normal="pl/menus.svg")
+    T.el(n, type="image", edges=[f"end-{150 - ARROWS_X}", f"end-{BOTTOM_H - ARROWS_Y}", f"end-{140 - ARROWS_X}",
+                                 f"end-{BOTTOM_H - ARROWS_Y - 13}"], normal="pl/shade-arrows.svg")  # fmt: skip
     T.el(n, type="drag", edges=[0, 0, "end", 18], double="toggle-pl-shade", cursor="ptbar")
     T.el(n, type="button", edges=["end-20", 2, "end-12", 14], **look2("pl/shade.svg", 8, 12), click="toggle-pl-shade",
          tip="Toggle Windowshade Mode")
@@ -769,6 +788,41 @@ def playlist_toml():
     T.el(m, type="text", rect=[11, 4, 190, 7], text="title")
     T.el(m, type="text", rect=[205, 4, 40, 7], text="playlist-clock", hide="stopped")
     shade_buttons(m, "toggle-pl-shade", "toggle-playlist-window")
+
+
+# --- media library --------------------------------------------------------------------------------
+def library_art():
+    """The library's own picture: its title. The rest is the playlist's."""
+    top_piece("title", 150, text="MEDIA LIBRARY", folder="ml")
+
+
+def library_toml():
+    """The library in the playlist's frame, with its own title, its lists over the scroll groove."""
+    T.lines.append("\n# --- media library, in the playlist's frame ---")
+    T.table("[[window]]", key="library", placement="docked", empty_press="nothing", wheel_scrolls_list=True)
+    T.table("[window.normal]", size=[W, H], resize_step=[25, 29], see_through=True, cursor="pnormal")
+    n = "normal"
+    T.el(n, type="image", edges=[0, 0, 25, TOP_H], normal="pl/top-left.svg")
+    T.el(n, type="image", edges=[25, 0, "end-25", TOP_H], normal="pl/top-tile.svg", fill="tile")
+    T.el(n, type="image", edges=["center-75", 0, "center+75", TOP_H], normal="ml/title.svg")
+    T.el(n, type="image", edges=["end-25", 0, "end", TOP_H], normal="pl/top-right.svg")
+    T.el(n, type="image", edges=[0, TOP_H, LEFT_W, f"end-{BOTTOM_H}"], normal="pl/left.svg", fill="tile")
+    T.el(n, type="image", edges=[f"end-{RIGHT_W}", TOP_H, "end", f"end-{BOTTOM_H}"], normal="pl/right.svg", fill="tile")
+    T.el(n, type="image", edges=[125, f"end-{BOTTOM_H}", "end-150", "end"], normal="pl/bottom-tile.svg", fill="tile")
+    T.el(n, type="image", edges=[0, f"end-{BOTTOM_H}", 125, "end"], normal="pl/bottom-left.svg")
+    T.el(n, type="image", edges=["end-150", f"end-{BOTTOM_H}", "end", "end"], normal="pl/bottom-right.svg")
+    T.el(n, type="drag", edges=[0, 0, "end", 18], cursor="ptbar")
+    T.el(n, type="button", edges=["end-10", 2, "end-2", 14], **look2("pl/close.svg", 8, 12),
+         click="toggle-library-window", cursor="pclose", tip="Close")
+    T.el(n, type="library", edges=[LEFT_W, TOP_H, "end-9", f"end-{BOTTOM_H}"], menu="library",
+         thumb=look2("pl/scroll-thumb.svg", 6, 18))
+    T.el(n, type="text", edges=["end-141", "end-28", "end-60", "end-21"], text="library-status")
+    T.el(n, type="text", edges=["end-76", "end-15", "end-50", "end-8"], text="playlist-clock", hide="stopped")
+    for i, cmd in enumerate(("previous", "play", "pause", "stop", "next", "open-file")):
+        T.el(n, type="button", edges=[f"end-{142 - i * 9}", "end-16", f"end-{133 - i * 9}", "end-7"], click=cmd)
+    T.el(n, type="button", edges=["end-44", "end-29", f"end-{44 - FOLDER_W}", "end-11"], menu_release="library",
+         tip="Library Menu")
+    T.el(n, type="resize", edges=["end-16", "end-14", "end", "end"], cursor="psize")
 
 
 # --- skin ----------------------------------------------------------------------------------------
@@ -798,6 +852,8 @@ def main():
     eq_toml()
     playlist_art()
     playlist_toml()
+    library_art()
+    library_toml()
     T.save()
 
 
