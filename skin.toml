@@ -1037,6 +1037,28 @@ double = "toggle-eq-shade"
 cursor = "eqtitle"
 
 [[window.shade.element]]
+type = "slider"
+rect = [38, 3, 112, 8]
+value = "volume"
+thumb = { normal = { file = "main/vol-thumb.svg", area = [0, 0, 13, 8] }, pressed = { file = "main/vol-thumb.svg", area = [13, 0, 13, 8] } }
+thumb_len = 13
+reset = 200
+wheel_step = 8
+cursor = "volbal"
+tip = "Volume"
+
+[[window.shade.element]]
+type = "slider"
+rect = [158, 3, 70, 8]
+value = "balance"
+thumb = { normal = { file = "main/vol-thumb.svg", area = [0, 0, 13, 8] }, pressed = { file = "main/vol-thumb.svg", area = [13, 0, 13, 8] } }
+thumb_len = 13
+reset = 0
+detent = 16
+cursor = "volbal"
+tip = "Balance"
+
+[[window.shade.element]]
 type = "button"
 rect = [255, 3, 8, 8]
 normal = { file = "common/shade.svg", area = [0, 0, 8, 8] }

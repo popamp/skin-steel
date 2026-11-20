@@ -424,14 +424,30 @@ def main_toml():
 SHADE_H = 14
 
 
-def shade_strip(name, lcd_span=None, caption=None, transport=False):
+# The shaded equalizer's volume and balance sliders: x and width of each, and where they stand in the strip
+EQ_SHADE_SLIDERS = ((38, 112), (158, 70))
+EQ_SHADE_SLIDER_Y = 3
+
+
+def slider_groove(svg, x, y, w):
+    """A slider's thin groove across `w`, as the volume's, for an 8 high thumb at `y`."""
+    svg.add(rrect(x, y + 2, w, 4, 2, "#3c424e"))
+    svg.add(rrect(x + 1, y + 4, w - 2, 2, 1, "#aab1be"))
+
+
+def shade_strip(name, lcd_span=None, caption=None, transport=False, sliders=()):
     """A window's shade mode: a navy strip with grips, and a small display
-    from lcd_span[0] to lcd_span[1] or a caption."""
+    from lcd_span[0] to lcd_span[1], or a caption: centred between grips,
+    or at the left end before the grooves of `sliders`, without grips."""
     s = Svg(W, SHADE_H)
     d = f"M0 3 A3 3 0 0 1 3 0 H{W - 3} A3 3 0 0 1 {W} 3 V{SHADE_H - 3} A3 3 0 0 1 {W - 3} {SHADE_H} H3 A3 3 0 0 1 0 {SHADE_H - 3} Z"
     s.add(f"<g {clip(s, d)}>")
     bands(s, 0, 0, W, TITLE_ROWS[:4] + TITLE_ROWS[-10:])
-    if lcd_span:
+    if sliders:
+        title_text(s, caption, 20, 11, 10)
+        for x, w in sliders:
+            slider_groove(s, x, EQ_SHADE_SLIDER_Y, w)
+    elif lcd_span:
         x0, x1 = lcd_span
         if x0 > 40:
             grip(s, 19, x0 - 4, 5)
@@ -612,7 +628,7 @@ def eq_art():
     knob("eq/thumb.svg")
     for name, glyph in (("close", GLYPH_CLOSE), ("shade", GLYPH_MIN)):
         box_button(f"eq/{name}.svg", glyph.replace(INK, "#7f8794"), faces=("#ffffff00", "#ffffff00"), border="none")
-    shade_strip("eq/shade-strip.svg", caption="EQUALIZER")
+    shade_strip("eq/shade-strip.svg", caption="EQ", sliders=EQ_SHADE_SLIDERS)
     graph_sheet()
 
 
@@ -694,6 +710,11 @@ def eq_toml():
     m = "shade"
     T.el(m, type="image", rect=[0, 0, W, SHADE_H], normal="eq/shade-strip.svg")
     T.el(m, type="drag", rect=[0, 0, W, SHADE_H], double="toggle-eq-shade", cursor="eqtitle")
+    (vx, vw), (bx, bw) = EQ_SHADE_SLIDERS
+    T.el(m, type="slider", rect=[vx, EQ_SHADE_SLIDER_Y, vw, 8], value="volume", thumb=look2("main/vol-thumb.svg", 13, 8),
+         thumb_len=13, reset=200, wheel_step=8, cursor="volbal", tip="Volume")
+    T.el(m, type="slider", rect=[bx, EQ_SHADE_SLIDER_Y, bw, 8], value="balance", thumb=look2("main/vol-thumb.svg", 13, 8),
+         thumb_len=13, reset=0, detent=16, cursor="volbal", tip="Balance")
     shade_buttons(m, "toggle-eq-shade", "toggle-eq-window")
 
 
