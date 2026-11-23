@@ -1532,11 +1532,11 @@ text = "khz"
 
 [[window.normal.element]]
 type = "vis"
-edges = [212, 26, "end-13", 59]
+edges = [212, 26, "end-10", 59]
 
 [[window.normal.element]]
 type = "button"
-edges = [212, 26, "end-13", 59]
+edges = [212, 26, "end-10", 59]
 press = "cycle-vis-mode"
 menu = "vis"
 
@@ -1548,7 +1548,7 @@ thumb = { normal = { file = "pl/scroll-thumb.svg", area = [0, 0, 6, 18] }, press
 
 [[window.normal.element]]
 type = "slider"
-edges = [9, "end-49", "end-11", "end-40"]
+edges = [8, "end-49", "end-8", "end-40"]
 value = "position"
 thumb = { normal = { file = "main/seek-thumb.svg", area = [0, 0, 28, 9] }, pressed = { file = "main/seek-thumb.svg", area = [28, 0, 28, 9] } }
 thumb_len = 28

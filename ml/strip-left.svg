@@ -2,24 +2,24 @@
 <defs>
 <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0.0" stop-color="#e8e9ee"/><stop offset="0.3333333333333333" stop-color="#f1f1f4"/><stop offset="0.6666666666666666" stop-color="#d6d9e0"/><stop offset="1.0" stop-color="#c0c5d0"/></linearGradient>
 <pattern id="p2" x="0" y="0" width="2" height="2" patternUnits="userSpaceOnUse"><rect class="navy-002263" width="1" height="1" fill="#002263"/></pattern>
-<clipPath id="c3"><path d="M12 3 H255 A5 5 0 0 1 260 8 V39 A5 5 0 0 1 255 44 H12 A5 5 0 0 1 7 39 V8 A5 5 0 0 1 12 3 Z"/></clipPath>
+<clipPath id="c3"><path d="M11 3 H255 A5 5 0 0 1 260 8 V39 A5 5 0 0 1 255 44 H11 A5 5 0 0 1 6 39 V8 A5 5 0 0 1 11 3 Z"/></clipPath>
 </defs>
 <rect x="0" y="0" width="220" height="48" fill="url(#g1)"/>
-<path d="M12 3 H255 A5 5 0 0 1 260 8 V39 A5 5 0 0 1 255 44 H12 A5 5 0 0 1 7 39 V8 A5 5 0 0 1 12 3 Z" fill="none" stroke="#141822" stroke-width="2"/>
-<path class="navy-284a89" d="M12 3 H255 A5 5 0 0 1 260 8 V39 A5 5 0 0 1 255 44 H12 A5 5 0 0 1 7 39 V8 A5 5 0 0 1 12 3 Z" fill="#284a89"/>
-<path d="M12 3 H255 A5 5 0 0 1 260 8 V39 A5 5 0 0 1 255 44 H12 A5 5 0 0 1 7 39 V8 A5 5 0 0 1 12 3 Z" fill="url(#p2)"/>
+<path d="M11 3 H255 A5 5 0 0 1 260 8 V39 A5 5 0 0 1 255 44 H11 A5 5 0 0 1 6 39 V8 A5 5 0 0 1 11 3 Z" fill="none" stroke="#141822" stroke-width="2"/>
+<path class="navy-284a89" d="M11 3 H255 A5 5 0 0 1 260 8 V39 A5 5 0 0 1 255 44 H11 A5 5 0 0 1 6 39 V8 A5 5 0 0 1 11 3 Z" fill="#284a89"/>
+<path d="M11 3 H255 A5 5 0 0 1 260 8 V39 A5 5 0 0 1 255 44 H11 A5 5 0 0 1 6 39 V8 A5 5 0 0 1 11 3 Z" fill="url(#p2)"/>
 <g clip-path="url(#c3)">
-<path class="navy-7d95c8-stroke" d="M12 3 H255 A5 5 0 0 1 260 8 V39 A5 5 0 0 1 255 44 H12 A5 5 0 0 1 7 39 V8 A5 5 0 0 1 12 3 Z" fill="none" stroke="#7d95c8" stroke-width="16" opacity="0.18"/>
-<path class="navy-7d95c8-stroke" d="M12 3 H255 A5 5 0 0 1 260 8 V39 A5 5 0 0 1 255 44 H12 A5 5 0 0 1 7 39 V8 A5 5 0 0 1 12 3 Z" fill="none" stroke="#7d95c8" stroke-width="10" opacity="0.25"/>
-<path class="navy-8aa0cc-stroke" d="M12 3 H255 A5 5 0 0 1 260 8 V39 A5 5 0 0 1 255 44 H12 A5 5 0 0 1 7 39 V8 A5 5 0 0 1 12 3 Z" fill="none" stroke="#8aa0cc" stroke-width="6" opacity="0.45"/>
-<path class="navy-8095c0-stroke" d="M12 3 H255 A5 5 0 0 1 260 8 V39 A5 5 0 0 1 255 44 H12 A5 5 0 0 1 7 39 V8 A5 5 0 0 1 12 3 Z" fill="none" stroke="#8095c0" stroke-width="4" opacity="0.7"/>
-<path class="navy-c6d4f0-stroke" d="M12 3 H255 A5 5 0 0 1 260 8 V39 A5 5 0 0 1 255 44 H12 A5 5 0 0 1 7 39 V8 A5 5 0 0 1 12 3 Z" fill="none" stroke="#c6d4f0" stroke-width="2" opacity="0.9"/>
+<path class="navy-7d95c8-stroke" d="M11 3 H255 A5 5 0 0 1 260 8 V39 A5 5 0 0 1 255 44 H11 A5 5 0 0 1 6 39 V8 A5 5 0 0 1 11 3 Z" fill="none" stroke="#7d95c8" stroke-width="16" opacity="0.18"/>
+<path class="navy-7d95c8-stroke" d="M11 3 H255 A5 5 0 0 1 260 8 V39 A5 5 0 0 1 255 44 H11 A5 5 0 0 1 6 39 V8 A5 5 0 0 1 11 3 Z" fill="none" stroke="#7d95c8" stroke-width="10" opacity="0.25"/>
+<path class="navy-8aa0cc-stroke" d="M11 3 H255 A5 5 0 0 1 260 8 V39 A5 5 0 0 1 255 44 H11 A5 5 0 0 1 6 39 V8 A5 5 0 0 1 11 3 Z" fill="none" stroke="#8aa0cc" stroke-width="6" opacity="0.45"/>
+<path class="navy-8095c0-stroke" d="M11 3 H255 A5 5 0 0 1 260 8 V39 A5 5 0 0 1 255 44 H11 A5 5 0 0 1 6 39 V8 A5 5 0 0 1 11 3 Z" fill="none" stroke="#8095c0" stroke-width="4" opacity="0.7"/>
+<path class="navy-c6d4f0-stroke" d="M11 3 H255 A5 5 0 0 1 260 8 V39 A5 5 0 0 1 255 44 H11 A5 5 0 0 1 6 39 V8 A5 5 0 0 1 11 3 Z" fill="none" stroke="#c6d4f0" stroke-width="2" opacity="0.9"/>
 </g>
 <rect class="navy-050911" x="0" y="46" width="220" height="1" fill="#050911"/>
 <rect x="0" y="47" width="220" height="1" fill="#ffffff"/>
 <rect class="navy-6981ad" x="209" y="8" width="1" height="31" fill="#6981ad"/>
-<path d="M35 36h1v1h-1zM37 36h1v1h-1zM35 37h1v1h-1zM37 37h1v1h-1zM35 38h2v1h-2zM35 39h1v1h-1zM37 39h1v1h-1zM35 40h1v1h-1zM37 40h1v1h-1zM39 36h2v1h-2zM39 37h1v1h-1zM41 37h1v1h-1zM39 38h2v1h-2zM39 39h1v1h-1zM41 39h1v1h-1zM39 40h2v1h-2zM43 36h2v1h-2zM43 37h1v1h-1zM45 37h1v1h-1zM43 38h2v1h-2zM43 39h1v1h-1zM43 40h1v1h-1zM48 36h2v1h-2zM47 37h1v1h-1zM48 38h1v1h-1zM49 39h1v1h-1zM47 40h2v1h-2z" fill="#ffffff"/>
-<path d="M75 36h1v1h-1zM77 36h1v1h-1zM75 37h1v1h-1zM77 37h1v1h-1zM75 38h2v1h-2zM75 39h1v1h-1zM77 39h1v1h-1zM75 40h1v1h-1zM77 40h1v1h-1zM79 36h1v1h-1zM81 36h1v1h-1zM79 37h1v1h-1zM81 37h1v1h-1zM79 38h3v1h-3zM79 39h1v1h-1zM81 39h1v1h-1zM79 40h1v1h-1zM81 40h1v1h-1zM83 36h3v1h-3zM85 37h1v1h-1zM84 38h1v1h-1zM83 39h1v1h-1zM83 40h3v1h-3z" fill="#ffffff"/>
+<path d="M34 36h1v1h-1zM36 36h1v1h-1zM34 37h1v1h-1zM36 37h1v1h-1zM34 38h2v1h-2zM34 39h1v1h-1zM36 39h1v1h-1zM34 40h1v1h-1zM36 40h1v1h-1zM38 36h2v1h-2zM38 37h1v1h-1zM40 37h1v1h-1zM38 38h2v1h-2zM38 39h1v1h-1zM40 39h1v1h-1zM38 40h2v1h-2zM42 36h2v1h-2zM42 37h1v1h-1zM44 37h1v1h-1zM42 38h2v1h-2zM42 39h1v1h-1zM42 40h1v1h-1zM47 36h2v1h-2zM46 37h1v1h-1zM47 38h1v1h-1zM48 39h1v1h-1zM46 40h2v1h-2z" fill="#ffffff"/>
+<path d="M74 36h1v1h-1zM76 36h1v1h-1zM74 37h1v1h-1zM76 37h1v1h-1zM74 38h2v1h-2zM74 39h1v1h-1zM76 39h1v1h-1zM74 40h1v1h-1zM76 40h1v1h-1zM78 36h1v1h-1zM80 36h1v1h-1zM78 37h1v1h-1zM80 37h1v1h-1zM78 38h3v1h-3zM78 39h1v1h-1zM80 39h1v1h-1zM78 40h1v1h-1zM80 40h1v1h-1zM82 36h3v1h-3zM84 37h1v1h-1zM83 38h1v1h-1zM82 39h1v1h-1zM82 40h3v1h-3z" fill="#ffffff"/>
 <rect x="0" y="0" width="1" height="48" fill="#000000"/>
 <rect x="1" y="0" width="1" height="48" fill="#989fac"/>
 <rect x="2" y="0" width="1" height="48" fill="#e5e5eb"/>

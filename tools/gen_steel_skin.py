@@ -970,8 +970,10 @@ def playlist_toml():
 ML_STRIP_TOP, ML_STRIP_H = TOP_H, 48
 ML_LIST_TOP = ML_STRIP_TOP + ML_STRIP_H
 ML_LEFT, ML_RIGHT, ML_TILE = 220, 20, 8
-ML_LCD = (LEFT_W, 3, 44)  # the display from the window's left, its top and bottom in the strip
-ML_LCD_END = 9  # the display's right end from the window's end
+# The display from the window's left, its top and bottom in the strip, and its right end from the window's end:
+# its outline on the list's outline, so the display and the list stand in frames of one width
+ML_LCD = (LEFT_W - 1, 3, 44)
+ML_LCD_END = 6
 ML_SEEK_H = 16  # the band over the bottom pieces, which lose their top two rows to it
 ML_BOTTOM_H = BOTTOM_H - 2
 ML_CLOCK = (34, ML_STRIP_TOP + 8)
