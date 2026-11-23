@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="16" viewBox="0 0 220 16">
+<defs>
+<linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0.0" stop-color="#e8e9ee"/><stop offset="0.3333333333333333" stop-color="#f1f1f4"/><stop offset="0.6666666666666666" stop-color="#d6d9e0"/><stop offset="1.0" stop-color="#c0c5d0"/></linearGradient>
+<linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0.0" stop-color="#7a8290"/><stop offset="0.2" stop-color="#aab0bc"/><stop offset="0.4" stop-color="#000000"/><stop offset="0.6" stop-color="#616976"/><stop offset="0.8" stop-color="#8d93a2"/><stop offset="1.0" stop-color="#cfd2db"/></linearGradient>
+</defs>
+<rect x="0" y="0" width="220" height="16" fill="url(#g1)"/>
+<rect x="9" y="4" width="251" height="7" rx="3" fill="url(#g2)"/>
+<rect x="11" y="10" width="209" height="1" fill="#ffffff"/>
+<rect x="0" y="0" width="220" height="1" fill="#181e27"/>
+<rect x="0" y="1" width="220" height="1" fill="#d2d5dd"/>
+<rect x="0" y="0" width="1" height="16" fill="#000000"/>
+<rect x="1" y="0" width="1" height="16" fill="#989fac"/>
+<rect x="2" y="0" width="1" height="16" fill="#e5e5eb"/>
+<rect x="3" y="0" width="1" height="16" fill="#b6bcc8"/>
+<rect x="4" y="0" width="1" height="16" fill="#ccd0d9"/>
+</svg>

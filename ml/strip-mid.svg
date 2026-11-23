@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="8" height="48" viewBox="0 0 8 48">
+<defs>
+<linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0.0" stop-color="#e8e9ee"/><stop offset="0.3333333333333333" stop-color="#f1f1f4"/><stop offset="0.6666666666666666" stop-color="#d6d9e0"/><stop offset="1.0" stop-color="#c0c5d0"/></linearGradient>
+<pattern id="p2" x="0" y="0" width="2" height="2" patternUnits="userSpaceOnUse"><rect class="navy-002263" width="1" height="1" fill="#002263"/></pattern>
+<clipPath id="c3"><path d="M-35 3 H43 A5 5 0 0 1 48 8 V39 A5 5 0 0 1 43 44 H-35 A5 5 0 0 1 -40 39 V8 A5 5 0 0 1 -35 3 Z"/></clipPath>
+</defs>
+<rect x="0" y="0" width="8" height="48" fill="url(#g1)"/>
+<path d="M-35 3 H43 A5 5 0 0 1 48 8 V39 A5 5 0 0 1 43 44 H-35 A5 5 0 0 1 -40 39 V8 A5 5 0 0 1 -35 3 Z" fill="none" stroke="#141822" stroke-width="2"/>
+<path class="navy-284a89" d="M-35 3 H43 A5 5 0 0 1 48 8 V39 A5 5 0 0 1 43 44 H-35 A5 5 0 0 1 -40 39 V8 A5 5 0 0 1 -35 3 Z" fill="#284a89"/>
+<path d="M-35 3 H43 A5 5 0 0 1 48 8 V39 A5 5 0 0 1 43 44 H-35 A5 5 0 0 1 -40 39 V8 A5 5 0 0 1 -35 3 Z" fill="url(#p2)"/>
+<g clip-path="url(#c3)">
+<path class="navy-7d95c8-stroke" d="M-35 3 H43 A5 5 0 0 1 48 8 V39 A5 5 0 0 1 43 44 H-35 A5 5 0 0 1 -40 39 V8 A5 5 0 0 1 -35 3 Z" fill="none" stroke="#7d95c8" stroke-width="16" opacity="0.18"/>
+<path class="navy-7d95c8-stroke" d="M-35 3 H43 A5 5 0 0 1 48 8 V39 A5 5 0 0 1 43 44 H-35 A5 5 0 0 1 -40 39 V8 A5 5 0 0 1 -35 3 Z" fill="none" stroke="#7d95c8" stroke-width="10" opacity="0.25"/>
+<path class="navy-8aa0cc-stroke" d="M-35 3 H43 A5 5 0 0 1 48 8 V39 A5 5 0 0 1 43 44 H-35 A5 5 0 0 1 -40 39 V8 A5 5 0 0 1 -35 3 Z" fill="none" stroke="#8aa0cc" stroke-width="6" opacity="0.45"/>
+<path class="navy-8095c0-stroke" d="M-35 3 H43 A5 5 0 0 1 48 8 V39 A5 5 0 0 1 43 44 H-35 A5 5 0 0 1 -40 39 V8 A5 5 0 0 1 -35 3 Z" fill="none" stroke="#8095c0" stroke-width="4" opacity="0.7"/>
+<path class="navy-c6d4f0-stroke" d="M-35 3 H43 A5 5 0 0 1 48 8 V39 A5 5 0 0 1 43 44 H-35 A5 5 0 0 1 -40 39 V8 A5 5 0 0 1 -35 3 Z" fill="none" stroke="#c6d4f0" stroke-width="2" opacity="0.9"/>
+</g>
+<rect class="navy-050911" x="0" y="46" width="8" height="1" fill="#050911"/>
+<rect x="0" y="47" width="8" height="1" fill="#ffffff"/>
+</svg>

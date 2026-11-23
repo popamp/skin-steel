@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="125" height="38" viewBox="0 0 125 38">
+<defs>
+<clipPath id="c1"><path d="M0 0 H125 V38 H4 A4 4 0 0 1 0 34 Z"/></clipPath>
+<linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0.0" stop-color="#aeb5c1"/><stop offset="0.2" stop-color="#c9cdd7"/><stop offset="0.4" stop-color="#b9bfcb"/><stop offset="0.6" stop-color="#8d94a2"/><stop offset="0.8" stop-color="#6d7483"/><stop offset="1.0" stop-color="#5e6673"/></linearGradient>
+<pattern id="p3" x="1" y="1" width="2" height="2" patternUnits="userSpaceOnUse"><rect class="navy-002263" width="1" height="1" fill="#002263"/></pattern>
+<clipPath id="c4"><path d="M13 9 H105 A5 5 0 0 1 110 14 V24 A5 5 0 0 1 105 29 H13 A5 5 0 0 1 8 24 V14 A5 5 0 0 1 13 9 Z"/></clipPath>
+</defs>
+<g clip-path="url(#c1)">
+<rect x="0" y="0" width="125" height="1" fill="#181e27"/>
+<rect x="0" y="1" width="125" height="1" fill="#d2d5dd"/>
+<rect x="0" y="2" width="125" height="1" fill="#b2b8c4"/>
+<rect x="0" y="3" width="125" height="1" fill="#b2b8c4"/>
+<rect x="0" y="4" width="125" height="1" fill="#b2b8c4"/>
+<rect x="0" y="5" width="125" height="1" fill="#b2b8c4"/>
+<rect x="0" y="6" width="125" height="1" fill="#b2b8c4"/>
+<rect x="0" y="7" width="125" height="1" fill="#b2b8c4"/>
+<rect x="0" y="8" width="125" height="1" fill="#b2b8c4"/>
+<rect x="0" y="9" width="125" height="24" fill="url(#g2)"/>
+<rect x="0" y="33" width="125" height="1" fill="#5b6370"/>
+<rect x="0" y="34" width="125" height="1" fill="#6b7381"/>
+<rect x="0" y="35" width="125" height="1" fill="#808896"/>
+<rect x="0" y="36" width="125" height="1" fill="#5f6775"/>
+<rect x="0" y="37" width="125" height="1" fill="#000000"/>
+<rect x="0" y="0" width="1" height="38" fill="#000000"/>
+<rect x="1" y="0" width="1" height="38" fill="#989fac"/>
+<rect x="2" y="0" width="1" height="38" fill="#e5e5eb"/>
+<rect x="3" y="0" width="1" height="38" fill="#b6bcc8"/>
+<rect x="4" y="0" width="1" height="38" fill="#ccd0d9"/>
+<path d="M13 9 H105 A5 5 0 0 1 110 14 V24 A5 5 0 0 1 105 29 H13 A5 5 0 0 1 8 24 V14 A5 5 0 0 1 13 9 Z" fill="none" stroke="#141822" stroke-width="2"/>
+<path class="navy-284a89" d="M13 9 H105 A5 5 0 0 1 110 14 V24 A5 5 0 0 1 105 29 H13 A5 5 0 0 1 8 24 V14 A5 5 0 0 1 13 9 Z" fill="#284a89"/>
+<path d="M13 9 H105 A5 5 0 0 1 110 14 V24 A5 5 0 0 1 105 29 H13 A5 5 0 0 1 8 24 V14 A5 5 0 0 1 13 9 Z" fill="url(#p3)"/>
+<g clip-path="url(#c4)">
+<path class="navy-7d95c8-stroke" d="M13 9 H105 A5 5 0 0 1 110 14 V24 A5 5 0 0 1 105 29 H13 A5 5 0 0 1 8 24 V14 A5 5 0 0 1 13 9 Z" fill="none" stroke="#7d95c8" stroke-width="16" opacity="0.18"/>
+<path class="navy-7d95c8-stroke" d="M13 9 H105 A5 5 0 0 1 110 14 V24 A5 5 0 0 1 105 29 H13 A5 5 0 0 1 8 24 V14 A5 5 0 0 1 13 9 Z" fill="none" stroke="#7d95c8" stroke-width="10" opacity="0.25"/>
+<path class="navy-8aa0cc-stroke" d="M13 9 H105 A5 5 0 0 1 110 14 V24 A5 5 0 0 1 105 29 H13 A5 5 0 0 1 8 24 V14 A5 5 0 0 1 13 9 Z" fill="none" stroke="#8aa0cc" stroke-width="6" opacity="0.45"/>
+<path class="navy-8095c0-stroke" d="M13 9 H105 A5 5 0 0 1 110 14 V24 A5 5 0 0 1 105 29 H13 A5 5 0 0 1 8 24 V14 A5 5 0 0 1 13 9 Z" fill="none" stroke="#8095c0" stroke-width="4" opacity="0.7"/>
+<path class="navy-c6d4f0-stroke" d="M13 9 H105 A5 5 0 0 1 110 14 V24 A5 5 0 0 1 105 29 H13 A5 5 0 0 1 8 24 V14 A5 5 0 0 1 13 9 Z" fill="none" stroke="#c6d4f0" stroke-width="2" opacity="0.9"/>
+</g>
+</g>
+<path d="M0.5 0 V34 A3.5 3.5 0 0 0 4 37.5 H125" fill="none" stroke="#000000"/>
+</svg>

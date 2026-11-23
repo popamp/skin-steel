@@ -220,6 +220,7 @@ GLYPH_MENU = f'<path d="M2 2h4v1h-4z M2 4h4v1h-4z M2 6h4v1h-4z" fill="{INK}"/>'
 GLYPH_MIN = f'<rect x="2" y="4" width="4" height="2" fill="{INK}"/>'
 GLYPH_SHADE = f'<rect x="2" y="2" width="4" height="2" fill="{INK}"/><rect x="2" y="5" width="4" height="1" fill="{INK}"/>'
 GLYPH_CLOSE = f'<path d="M2 2 L6 6 M6 2 L2 6" stroke="{INK}" stroke-width="1.2"/>'
+GLYPH_MAX = f'<path d="M2 2h4v2h-4z M2 4h1v1h-1z M5 4h1v1h-1z M2 5h4v1h-4z" fill="{INK}"/>'
 
 
 # --- main window ------------------------------------------------------------------------------
@@ -291,7 +292,8 @@ def main_art():
 
     for name, _, s, _, _, _ in TRANSPORT:
         round_button(f"main/{name}.svg", TRANSPORT_D, name, s)
-    for name, glyph in (("menu", GLYPH_MENU), ("min", GLYPH_MIN), ("shade", GLYPH_SHADE), ("close", GLYPH_CLOSE)):
+    for name, glyph in (("menu", GLYPH_MENU), ("min", GLYPH_MIN), ("shade", GLYPH_SHADE), ("close", GLYPH_CLOSE),
+                        ("max", GLYPH_MAX)):
         box_button(f"common/{name}.svg", glyph)
     blue = ("#ffffff", "#eef0f4", "#c9ced8")
     lit = ("#e6efff", "#c4d6f7", "#93acdc")
@@ -776,7 +778,7 @@ def side(name, cols):
     s.save(f"pl/{name}.svg")
 
 
-def bottom(name, w, draw=None, corner=None):
+def bottom(name, w, draw=None, corner=None, folder="pl"):
     s = Svg(w, BOTTOM_H)
     shape = {"bl": f"M0 0 H{w} V{BOTTOM_H} H4 A4 4 0 0 1 0 {BOTTOM_H - 4} Z",
              "br": f"M0 0 H{w} V{BOTTOM_H - 4} A4 4 0 0 1 {w - 4} {BOTTOM_H} H0 Z"}.get(corner, f"M0 0 H{w} V{BOTTOM_H} H0 Z")
@@ -797,7 +799,7 @@ def bottom(name, w, draw=None, corner=None):
         edge = (f"M0.5 0 V{BOTTOM_H - 4} A3.5 3.5 0 0 0 4 {BOTTOM_H - 0.5} H{w}" if corner == "bl" else
                 f"M{w - 0.5} 0 V{BOTTOM_H - 4} A3.5 3.5 0 0 1 {w - 4} {BOTTOM_H - 0.5} H0")
         s.add(f'<path d="{edge}" fill="none" stroke="{OUTLINE}"/>')
-    s.save(f"pl/{name}.svg")
+    s.save(f"{folder}/{name}.svg")
 
 
 def oval_icon(s, kind, cx, cy):
@@ -960,34 +962,153 @@ def playlist_toml():
 
 
 # --- media library --------------------------------------------------------------------------------
+# --- media library ---------------------------------------------------------------------------------
+# The playlist's frame with its own title. Under the title a display with the song and the visualizer; over the
+# bottom a band with the main window's position groove; in the bottom the status, the main window's transport in
+# the middle, the volume and the folder button for the library's menu.
+
+ML_STRIP_TOP, ML_STRIP_H = TOP_H, 48
+ML_LIST_TOP = ML_STRIP_TOP + ML_STRIP_H
+ML_LEFT, ML_RIGHT, ML_TILE = 220, 20, 8
+ML_LCD = (LEFT_W, 3, 44)  # the display from the window's left, its top and bottom in the strip
+ML_LCD_END = 9  # the display's right end from the window's end
+ML_SEEK_H = 16  # the band over the bottom pieces, which lose their top two rows to it
+ML_BOTTOM_H = BOTTOM_H - 2
+ML_CLOCK = (34, ML_STRIP_TOP + 8)
+ML_TITLE_ROW = ML_STRIP_TOP + 25
+ML_RATE_ROW = ML_STRIP_TOP + 35
+ML_VIS_X = ML_LEFT - 8  # the visualizer from here to the display's right, a line before it
+PANEL = ("#e8e9ee", "#f1f1f4", "#d6d9e0", "#c0c5d0")  # the main window's silver
+GROOVE = ("#7a8290", "#aab0bc", "#000000", "#616976", "#8d93a2", "#cfd2db")
+FAR = 40  # how far a shape runs past a piece's edge where it goes on
+
+
+def ml_piece(name, w, h, draw, left=False, right=False):
+    """A piece of the strip or the band: the main window's silver, the window's edge at either end."""
+    s = Svg(w, h)
+    s.add(f'<rect x="0" y="0" width="{w}" height="{h}" fill="{s.grad(PANEL)}"/>')
+    draw(s)
+    if left:
+        columns(s, 0, 0, h, LEFT_COLS[:5])
+    if right:
+        columns(s, w - 5, 0, h, RIGHT_COLS[-5:])
+    s.save(f"ml/{name}.svg")
+
+
+def ml_lcd(s, x0, x1):
+    """The display from `x0` to `x1`, the list's top under it."""
+    _, top, bottom_ = ML_LCD
+    lcd(s, rounded(x0, top, x1, bottom_, 5))
+    bands(s, 0, ML_STRIP_H - 2, s.w, ("#050911", "#ffffff"))
+
+
+def ml_strip_left(s):
+    ml_lcd(s, ML_LCD[0], ML_LEFT + FAR)
+    _, top, bottom_ = ML_LCD
+    s.add(f'<rect x="{ML_VIS_X - 3}" y="{top + 5}" width="1" height="{bottom_ - top - 10}" fill="{LCD_DIM}"/>')
+    row = ML_RATE_ROW - ML_STRIP_TOP
+    s.add(pf.svg_text(pf.TINY, "KBPS", ML_LCD[0] + 28, row + 1, LCD_TEXT))
+    s.add(pf.svg_text(pf.TINY, "KHZ", ML_LCD[0] + 68, row + 1, LCD_TEXT))
+
+
+def ml_groove(s, x0, x1):
+    """The position bar's groove, as the main window's."""
+    s.add(rrect(x0, 4, x1 - x0, 7, 3, s.grad(GROOVE)))
+    s.add(f'<rect x="{max(x0 + 2, 0)}" y="10" width="{min(x1 - 2, s.w) - max(x0 + 2, 0)}" height="1" fill="#ffffff"/>')
+    bands(s, 0, 0, s.w, BOTTOM_ROWS[:2])
+
+
+def ml_bottom_left(s):
+    lcd(s, rounded(8, 9, 110, 29, 5), 1, 1)
+
+
+def ml_bottom_right(s):
+    disc(s, 116.5, 18, FOLDER_W / 2 - 2, OVAL_H / 2 - 2.5, FACE)
+    s.add(f'<path d="M112.5 15.5 h3 l1 1 h4.5 v5 h-8.5 Z" fill="none" stroke="{INK}"/>')
+    for k in range(4):
+        s.add(f'<path d="M{135 + 3 * k} 35 L146 {24 + 3 * k}" stroke="#3c424e" stroke-width="1.2"/>')
+
+
 def library_art():
-    """The library's own picture: its title. The rest is the playlist's."""
+    """The library's own pictures: its title, the display, the band and the bottom's ends."""
     top_piece("title", 150, text="MEDIA LIBRARY", folder="ml")
+    h, end_ = ML_STRIP_H, ML_RIGHT - ML_LCD_END
+    ml_piece("strip-left", ML_LEFT, h, ml_strip_left, left=True)
+    ml_piece("strip-mid", ML_TILE, h, lambda s: ml_lcd(s, -FAR, ML_TILE + FAR))
+    ml_piece("strip-right", ML_RIGHT, h, lambda s: ml_lcd(s, -FAR, end_), right=True)
+    ml_piece("seek-left", ML_LEFT, ML_SEEK_H, lambda s: ml_groove(s, ML_LCD[0] + 2, ML_LEFT + FAR), left=True)
+    ml_piece("seek-mid", ML_TILE, ML_SEEK_H, lambda s: ml_groove(s, -FAR, ML_TILE + FAR))
+    ml_piece("seek-right", ML_RIGHT, ML_SEEK_H, lambda s: ml_groove(s, -FAR, end_ - 2), right=True)
+    bottom("bottom-left", 125, ml_bottom_left, "bl", folder="ml")
+    bottom("bottom-right", 150, ml_bottom_right, "br", folder="ml")
+
+
+def ml_row(n, name, top, h):
+    """A row of the library's pieces `h` high: `name`-left, `name`-mid tiled and `name`-right."""
+    bottom_ = top + h if isinstance(top, int) else f"end-{int(top[4:]) - h}"
+    T.el(n, type="image", edges=[0, top, ML_LEFT, bottom_], normal=f"ml/{name}-left.svg")
+    T.el(n, type="image", edges=[ML_LEFT, top, f"end-{ML_RIGHT}", bottom_], normal=f"ml/{name}-mid.svg", fill="tile")
+    T.el(n, type="image", edges=[f"end-{ML_RIGHT}", top, "end", bottom_], normal=f"ml/{name}-right.svg")
+
+
+def centre(dx):
+    """A place `dx` from the window's middle."""
+    return f"center+{dx}" if dx >= 0 else f"center-{-dx}"
 
 
 def library_toml():
     """The library in the playlist's frame, with its own title, its lists over the scroll groove."""
     T.lines.append("\n# --- media library, in the playlist's frame ---")
     T.table("[[window]]", key="library", placement="docked", empty_press="nothing", wheel_scrolls_list=True)
-    T.table("[window.normal]", size=[W, H], resize_step=[25, 29], see_through=True, cursor="pnormal")
-    n = "normal"
+    T.table("[window.normal]", size=[400, 232], resize_step=[25, 29], see_through=True, cursor="pnormal")
+    n, top, low, b = "normal", ML_LIST_TOP, f"end-{ML_BOTTOM_H + ML_SEEK_H}", f"end-{ML_BOTTOM_H}"
     T.el(n, type="image", edges=[0, 0, 25, TOP_H], normal="pl/top-left.svg")
     T.el(n, type="image", edges=[25, 0, "end-25", TOP_H], normal="pl/top-tile.svg", fill="tile")
     T.el(n, type="image", edges=["center-75", 0, "center+75", TOP_H], normal="ml/title.svg")
     T.el(n, type="image", edges=["end-25", 0, "end", TOP_H], normal="pl/top-right.svg")
-    T.el(n, type="image", edges=[0, TOP_H, LEFT_W, f"end-{BOTTOM_H}"], normal="pl/left.svg", fill="tile")
-    T.el(n, type="image", edges=[f"end-{RIGHT_W}", TOP_H, "end", f"end-{BOTTOM_H}"], normal="pl/right.svg", fill="tile")
-    T.el(n, type="image", edges=[125, f"end-{BOTTOM_H}", "end-150", "end"], normal="pl/bottom-tile.svg", fill="tile")
-    T.el(n, type="image", edges=[0, f"end-{BOTTOM_H}", 125, "end"], normal="pl/bottom-left.svg")
-    T.el(n, type="image", edges=["end-150", f"end-{BOTTOM_H}", "end", "end"], normal="pl/bottom-right.svg")
-    T.el(n, type="drag", edges=[0, 0, "end", 18], cursor="ptbar")
+    ml_row(n, "strip", ML_STRIP_TOP, ML_STRIP_H)
+    T.el(n, type="image", edges=[0, top, LEFT_W, low], normal="pl/left.svg", fill="tile")
+    T.el(n, type="image", edges=[f"end-{RIGHT_W}", top, "end", low], normal="pl/right.svg", fill="tile")
+    ml_row(n, "seek", low, ML_SEEK_H)
+    # the bottom pieces below their top two rows, which the band has
+    T.el(n, type="image", edges=[125, b, "end-150", "end"], normal=part("pl/bottom-tile.svg", 0, 2, 25, ML_BOTTOM_H), fill="tile")
+    T.el(n, type="image", edges=[0, b, 125, "end"], normal=part("ml/bottom-left.svg", 0, 2, 125, ML_BOTTOM_H))
+    T.el(n, type="image", edges=["end-150", b, "end", "end"], normal=part("ml/bottom-right.svg", 0, 2, 150, ML_BOTTOM_H))
+    T.el(n, type="drag", edges=[0, 0, "end-22", 18], double="toggle-library-maximize", cursor="ptbar")
+    T.el(n, type="button", edges=["end-20", 5, "end-12", 13], **look2("common/max.svg", 8, 8), click="toggle-library-maximize",
+         tip="Maximize")
     title_buttons(None, "toggle-library-window")
-    T.el(n, type="library", edges=[LEFT_W, TOP_H, "end-9", f"end-{BOTTOM_H}"], menu="library",
-         thumb=look2("pl/scroll-thumb.svg", 6, 18))
-    T.el(n, type="text", edges=["end-141", "end-28", "end-60", "end-21"], text="library-status")
-    T.el(n, type="text", edges=["end-76", "end-15", "end-50", "end-8"], text="playlist-clock", hide="stopped")
-    for i, cmd in enumerate(("previous", "play", "pause", "stop", "next", "open-file")):
-        T.el(n, type="button", edges=[f"end-{142 - i * 9}", "end-16", f"end-{133 - i * 9}", "end-7"], click=cmd)
+    # the display: the play state, the clock, the song, the rates and the visualizer
+    cx, cy = ML_CLOCK
+    for i, flag in enumerate(("playing", "paused", "stopped")):
+        T.el(n, type="image", rect=[20, cy, 12, 9], normal=part("main/status.svg", 12 * i, 0, 12, 9), show=flag)
+    T.el(n, type="clock", rect=[cx, cy, 64, 13], hide="stopped")
+    T.el(n, type="button", rect=[cx, cy, 64, 13], press="toggle-time-mode", menu="time")
+    T.el(n, type="marquee", rect=[16, ML_TITLE_ROW, ML_VIS_X - 24, 11], area=[2, 2, ML_VIS_X - 28, 7], double="file-info",
+         cursor="songname", tip="Song Title (right-click for options)", menu="song-title")
+    T.el(n, type="text", rect=[18, ML_RATE_ROW, 15, 7], text="kbps")
+    T.el(n, type="text", rect=[58, ML_RATE_ROW, 10, 7], text="khz")
+    lt, lb = ML_STRIP_TOP + ML_LCD[1], ML_STRIP_TOP + ML_LCD[2]
+    vis = [ML_VIS_X, lt + 4, f"end-{ML_LCD_END + 4}", lb - 4]
+    T.el(n, type="vis", edges=vis)
+    T.el(n, type="button", edges=vis, press="cycle-vis-mode", menu="vis")
+    T.el(n, type="library", edges=[LEFT_W, top, "end-9", low], menu="library", thumb=look2("pl/scroll-thumb.svg", 6, 18))
+    # the position bar along the band's groove
+    y0 = ML_BOTTOM_H + ML_SEEK_H - 3
+    T.el(n, type="slider", edges=[ML_LCD[0] + 2, f"end-{y0}", f"end-{ML_LCD_END + 2}", f"end-{y0 - 9}"], value="position",
+         thumb=look2("main/seek-thumb.svg", 28, 9), thumb_len=28, live=False, show="seekable", cursor="posbar", menu="seek")
+    T.el(n, type="text", edges=[14, "end-25", 104, "end-18"], text="library-status")
+    # the main window's transport in the middle; Play plays the track picked in the library
+    d, mid = TRANSPORT_D, (TRANSPORT[0][1] + TRANSPORT[-1][1]) // 2
+    for name, cx_, _, act, menu, tip in TRANSPORT:
+        if act["click"] == "play":
+            act, tip = act | {"click": "library-play"}, "Play the picked track"
+        x, y = cx_ - mid - d // 2, ML_BOTTOM_H // 2 + 1 + d // 2
+        T.el(n, type="button", edges=[centre(x), f"end-{y}", centre(x + d), f"end-{y - d}"], **look2(f"main/{name}.svg", d, d),
+             hit=part(f"main/{name}.svg", 2 * d, 0, d, d), **act, menu=menu, tip=tip)
+    T.el(n, type="slider", edges=["end-124", "end-23", f"end-{124 - VOLUME_W}", f"end-{23 - VOLUME_H}"], value="volume",
+         track={"file": "main/volume.svg", "first": [0, 0, VOLUME_W, VOLUME_H], "step": [0, VOLUME_H], "count": VOLUME_FRAMES},
+         thumb=look2("main/vol-thumb.svg", 13, 8), thumb_len=13, reset=200, wheel_step=8, cursor="volbal", tip="Volume")
     T.el(n, type="button", edges=["end-44", "end-29", f"end-{44 - FOLDER_W}", "end-11"], menu_release="library",
          tip="Library Menu")
     T.el(n, type="resize", edges=["end-16", "end-14", "end", "end"], cursor="psize")
