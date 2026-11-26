@@ -15,5 +15,5 @@ jobs:
   release:
     uses: popamp/apt/.github/workflows/addon-release.yml@main
     with:
-      min-popamp: "1.0.0"   # the bar, the colour sets and the library
+      min-popamp: "1.2.0"   # the bar, the colour sets and the library's commands
     secrets: inherit
